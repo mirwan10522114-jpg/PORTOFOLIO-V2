@@ -1,0 +1,2157 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b0c0d">
+<meta name="description" content="Portofolio Resmi Mirwan Kholid, S.Kom. — Full-Stack Web Developer & BNSP Certified Data Analyst lulusan Universitas Komputer Indonesia (IPK 3.68, High Distinction). Membangun arsitektur web modern, sistem pemerintahan, dan analitik data terakreditasi.">
+<title>MIRWAN KHOLID, S.Kom. — Full-Stack Web Developer &amp; Certified Data Analyst · UNIKOM</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============ TOKEN & RESET (PRESERVED PALETTE) ============ */
+:root{
+  --bg:#0b0c0d; --panel:#121316; --panel2:#17181c;
+  --line:#24262a; --line2:#33363c;
+  --silver:#b4b9bf; --dim:#787e85;
+  --white:#f3f1ec;
+  --white-soft:rgba(243,241,236,.12);
+  --orange:#ff4d00; --orange-soft:rgba(255,77,0,.12);
+  --amber:var(--white); --amber-soft:var(--white-soft);
+  --cyan:var(--white); --cyan-soft:var(--white-soft);
+  --green:#10b981; --green-soft:rgba(16,185,129,.12);
+  --anton:'Anton',Impact,sans-serif;
+  --arch:'Archivo',sans-serif;
+  --mono:'IBM Plex Mono',monospace;
+  --ease:cubic-bezier(.2,.7,.2,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{background:var(--bg);color:var(--silver);font-family:var(--arch);font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+button{font-family:inherit;background:none;border:none;color:inherit;cursor:pointer}
+::selection{background:var(--orange);color:#0b0c0d}
+:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:var(--line2)}
+::-webkit-scrollbar-thumb:hover{background:var(--orange)}
+.mono{font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase}
+
+/* ============ TEKSTUR BUTIRAN FILM ============ */
+#grain{position:fixed;inset:-60px;width:calc(100% + 120px);height:calc(100% + 120px);pointer-events:none;z-index:2000;opacity:.055;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:grain 7s steps(8) infinite}
+@keyframes grain{0%{transform:translate(0,0)}25%{transform:translate(-30px,20px)}50%{transform:translate(20px,-25px)}75%{transform:translate(-15px,-10px)}100%{transform:translate(0,0)}}
+
+/* ============ KURSOR KUSTOM ============ */
+#cursor-dot,#cursor-ring{position:fixed;top:0;left:0;pointer-events:none;z-index:999999;display:none}
+.has-cursor #cursor-dot,.has-cursor #cursor-ring{display:block}
+.has-cursor *{cursor:none!important}
+#cursor-dot span{display:block;width:6px;height:6px;background:var(--orange);border-radius:50%;transform:translate(-50%,-50%)}
+#cursor-ring span{display:block;width:34px;height:34px;border:1px solid rgba(255,77,0,.55);border-radius:50%;transform:translate(-50%,-50%);
+  transition:width .25s var(--ease),height .25s var(--ease),border-color .25s,background .25s}
+#cursor-ring.big span{width:56px;height:56px;border-color:var(--orange);background:var(--orange-soft)}
+
+/* ============ PROGRESS & NAV ============ */
+#progress{position:fixed;top:0;left:0;height:2px;width:0;background:var(--orange);z-index:1001}
+#nav{position:fixed;top:0;left:0;right:0;z-index:1000;height:68px;display:flex;align-items:center;justify-content:space-between;gap:20px;
+  padding:0 clamp(16px,3vw,40px);background:rgba(11,12,13,.82);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.05);transition:background .3s,border-color .3s}
+#nav.scrolled{background:rgba(11,12,13,.96);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom-color:var(--line)}
+.logo{display:flex;align-items:center;gap:12px}
+.logo-mark{font-family:var(--anton);font-size:15px;letter-spacing:.05em;background:var(--orange);color:#0b0c0d;padding:5px 8px 4px}
+.logo-name{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--white)}
+.nav-links{display:flex;gap:clamp(8px,1.2vw,18px)}
+.nav-links a{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;color:var(--dim);padding:6px 0;transition:color .2s;white-space:nowrap}
+.nav-links a::before{content:'/';color:var(--orange);margin-right:4px;opacity:0;transition:opacity .2s}
+.nav-links a:hover{color:var(--white)}
+.nav-links a.active{color:var(--white)}
+.nav-links a.active::before{opacity:1}
+.nav-right{display:flex;align-items:center;gap:14px}
+.nav-loc{font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:.14em}
+.nav-loc b{color:var(--green);font-weight:600}
+#burger{display:none;width:40px;height:40px;flex-direction:column;justify-content:center;align-items:center;gap:6px}
+#burger span{display:block;width:22px;height:2px;background:var(--white);transition:transform .3s var(--ease)}
+#burger.active span:first-child{transform:translateY(4px) rotate(45deg)}
+#burger.active span:last-child{transform:translateY(-4px) rotate(-45deg)}
+
+/* menu layar penuh (mobile) - disembunyikan sepenuhnya di desktop */
+#menu{position:fixed;inset:0;z-index:990;background:rgba(11,12,13,.98);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  display:none;flex-direction:column;justify-content:flex-start;padding:84px clamp(24px,8vw,80px) 40px;
+  transform:translateY(-100%);transition:transform .45s var(--ease),visibility .45s var(--ease);
+  visibility:hidden;pointer-events:none;overflow-y:auto;overscroll-behavior:contain}
+#menu.open{transform:translateY(0);visibility:visible;pointer-events:auto}
+#menu a{display:flex;align-items:baseline;gap:16px;font-family:var(--anton);font-size:clamp(20px,5vw,36px);color:var(--white);
+  text-transform:uppercase;border-bottom:1px solid var(--line);padding:10px 0;transition:color .2s,padding-left .25s}
+#menu a span{font-family:var(--mono);font-size:11px;color:var(--orange)}
+#menu a:hover{color:var(--orange);padding-left:10px}
+.menu-foot{margin-top:28px;padding-top:16px;border-top:1px solid var(--line);color:var(--dim);font-size:10px}
+
+/* ============ TOMBOL ============ */
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 18px;font-weight:700;font-size:11.5px;letter-spacing:.08em;
+  text-transform:uppercase;transition:background .2s,color .2s,border-color .2s,transform .18s var(--ease);white-space:nowrap}
+.btn svg{width:14px;height:14px}
+.btn-solid{background:var(--orange);color:#0b0c0d}
+.btn-solid:hover{background:var(--white);color:#0b0c0d}
+.btn-ghost{border:1px solid var(--line2);color:var(--white)}
+.btn-ghost:hover{border-color:var(--orange);color:var(--orange)}
+.btn-cyan{border:1px solid var(--cyan);color:var(--cyan);background:var(--cyan-soft)}
+.btn-cyan:hover{background:var(--cyan);color:#0b0c0d}
+.btn-sm{padding:8px 15px;font-size:11px}
+
+/* ============ REVEAL SAAT SCROLL ============ */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease);transition-delay:var(--d,0s)}
+.reveal.in{opacity:1;transform:none}
+
+/* ============ HERO SECTION ============ */
+#hero{position:relative;min-height:100svh;display:flex;flex-direction:column;padding:105px clamp(16px,3vw,40px) 0}
+.hero-bg{position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:96px 96px;opacity:.14;-webkit-mask-image:linear-gradient(#000 55%,transparent);mask-image:linear-gradient(#000 55%,transparent);pointer-events:none}
+.hero-side{position:absolute;left:6px;bottom:150px;writing-mode:vertical-rl;transform:rotate(180deg);font-size:9px;letter-spacing:.3em;color:var(--line2);display:none}
+.hero-inner{position:relative;flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;
+  padding-bottom:clamp(36px,5vw,60px);max-width:1360px;margin:0 auto;width:100%}
+.hero-content{max-width:1120px;width:100%;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center}
+.hero-top{display:flex;justify-content:center;gap:clamp(12px,2.5vw,32px);flex-wrap:wrap;font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;
+  color:var(--dim);margin-bottom:clamp(18px,2.2vw,28px);width:100%}
+.hero-top b{color:var(--orange);font-weight:600}
+.hero-top .cyan-badge{color:var(--white);font-weight:600}
+
+h1.display{font-family:var(--anton);font-weight:400;text-transform:uppercase;color:var(--white);
+  font-size:clamp(56px,12vw,165px);line-height:.88;letter-spacing:.01em;text-align:center;width:100%}
+h1.display .stroke{display:block;color:transparent;-webkit-text-stroke:clamp(1.5px,.22vw,3px) var(--orange);margin-left:0;margin-top:clamp(4px,.8vw,12px)}
+h1.display .stroke::after{content:'';display:inline-block;width:.12em;height:.12em;background:var(--orange);margin-left:.06em}
+.hero-sub{margin-top:clamp(20px,2.4vw,28px);color:var(--silver);max-width:74ch;margin-left:auto;margin-right:auto;font-size:clamp(15.5px,1.25vw,18px);line-height:1.75;text-align:center}
+.hero-cta{display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap;margin-top:clamp(26px,3vw,38px);width:100%}
+
+/* baris statistik */
+.stats{position:relative;border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(4,1fr);max-width:1360px;margin:0 auto;width:100%}
+.stat{padding:clamp(16px,2vw,24px) clamp(14px,2vw,26px);border-left:1px solid var(--line)}
+.stat:first-child{border-left:0;padding-left:0}
+.stat b{display:flex;align-items:baseline;gap:2px;font-family:var(--anton);font-weight:400;font-size:clamp(28px,3.4vw,48px);color:var(--white);line-height:1}
+.stat b i{font-style:normal;color:var(--orange);font-size:.55em}
+.stat-lbl{display:block;margin-top:6px;font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;color:var(--dim)}
+
+/* ============ MARQUEE ============ */
+.marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:var(--panel);overflow:hidden}
+.marquee:hover .mq-track{animation-play-state:paused}
+.mq-track{display:flex;width:max-content;animation:mq 32s linear infinite}
+.mq-item{display:flex;align-items:center;white-space:nowrap;padding:12px 0;font-family:var(--anton);font-size:clamp(14px,1.7vw,21px);
+  text-transform:uppercase;color:var(--white);letter-spacing:.02em}
+.mq-item.o{color:var(--orange)}
+.mq-item.c{color:var(--cyan)}
+.mq-item.d{color:var(--dim)}
+.mq-sep{font-family:var(--mono);color:rgba(255,77,0,.45);margin:0 clamp(14px,2vw,24px);font-size:12px;align-self:center}
+@keyframes mq{to{transform:translateX(-33.3333%)}}
+
+/* ============ SECTION UMUM ============ */
+section{position:relative;padding:clamp(60px,8vw,110px) clamp(16px,3vw,40px)}
+.wrap{max-width:1360px;margin:0 auto;position:relative}
+.sec-head{display:grid;grid-template-columns:auto 1fr;gap:clamp(16px,3vw,40px);align-items:end;border-bottom:1px solid var(--line);
+  padding-bottom:clamp(18px,2.5vw,28px);margin-bottom:clamp(32px,4vw,52px)}
+.idx{font-family:var(--anton);font-size:clamp(40px,5.5vw,78px);line-height:.85;color:transparent;-webkit-text-stroke:1.5px var(--line2);transition:-webkit-text-stroke-color .4s}
+.sec-head:hover .idx{-webkit-text-stroke-color:var(--orange)}
+.kicker{font-family:var(--mono);font-size:10px;letter-spacing:.22em;color:var(--orange);display:block;margin-bottom:10px;text-transform:uppercase}
+h2{font-family:var(--anton);font-weight:400;color:var(--white);text-transform:uppercase;line-height:.95;font-size:clamp(30px,4.2vw,56px);letter-spacing:.01em}
+h2 em{font-style:normal;color:var(--orange)}
+.lead{margin-top:12px;color:var(--dim);max-width:68ch;font-size:14.5px}
+
+/* ============ SECTION 01: PROFILE & PHILOSOPHY ============ */
+.about-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(28px,3.5vw,60px);align-items:start}
+.about-narrative p{font-size:15.5px;color:var(--silver);line-height:1.75;margin-bottom:18px}
+.about-narrative strong{color:var(--white);font-weight:600}
+.about-narrative em{font-style:italic;color:var(--orange)}
+.about-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:24px}
+.about-tag{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;padding:6px 12px;background:var(--panel);border:1px solid var(--line2);color:var(--orange)}
+.about-tag.cyan{color:var(--white);border-color:var(--line2);background:var(--panel)}
+.about-box{background:var(--panel);border:1px solid var(--line);padding:clamp(20px,2.5vw,32px);position:relative}
+.about-box::before{content:'';position:absolute;top:-1px;left:-1px;width:20px;height:20px;border-top:2px solid var(--orange);border-left:2px solid var(--orange)}
+.about-box-title{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--orange);text-transform:uppercase;margin-bottom:14px}
+.about-quote{font-family:var(--anton);font-size:clamp(20px,2.2vw,30px);line-height:1.2;color:var(--white);text-transform:uppercase;margin-bottom:16px}
+.about-quote span{color:var(--orange)}
+.about-quote-sub{font-size:13.5px;color:var(--dim);line-height:1.6}
+
+/* ============ PROYEK / SISTEM (TABS) ============ */
+.prog-layout{display:grid;grid-template-columns:minmax(250px,310px) minmax(0,1fr);gap:clamp(24px,3vw,48px);align-items:start}
+.tabs{border-top:1px solid var(--line)}
+.tab{width:100%;display:flex;align-items:center;gap:14px;padding:16px 14px;border-bottom:1px solid var(--line);text-align:left;
+  transition:background .2s,padding .2s;position:relative}
+.tab .t-num{font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:.1em}
+.tab .t-body{flex:1;min-width:0}
+.tab .t-name{display:block;font-family:var(--anton);font-size:19px;letter-spacing:.02em;color:var(--silver);text-transform:uppercase;line-height:1.1;transition:color .2s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tab .t-tag{display:block;margin-top:4px;font-family:var(--mono);font-size:9px;letter-spacing:.12em;color:var(--dim);text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.tab .t-arrow{width:16px;height:16px;color:var(--line2);transition:color .2s;flex:none}
+.tab:hover .t-name{color:var(--white)}
+.tab[aria-selected="true"]{background:var(--panel);padding-left:22px}
+.tab[aria-selected="true"]::before{content:'';position:absolute;left:0;top:-1px;bottom:-1px;width:3px;background:var(--orange)}
+.tab[aria-selected="true"] .t-name{color:var(--orange)}
+.tab[aria-selected="true"] .t-arrow{color:var(--orange)}
+
+.prog-panel{transition:opacity .22s ease,transform .22s ease}
+.prog-panel.out{opacity:0;transform:translateY(12px)}
+.prog-body{display:grid;grid-template-columns:minmax(0,1fr) minmax(280px,420px);gap:clamp(24px,3.5vw,56px);align-items:start}
+.prog-head{display:flex;justify-content:space-between;align-items:baseline;gap:14px;flex-wrap:wrap}
+.prog-head h3{font-family:var(--anton);font-weight:400;font-size:clamp(24px,2.7vw,36px);color:var(--white);text-transform:uppercase;line-height:1.05}
+.prog-head h3 em{font-style:normal;color:var(--orange)}
+.prog-code{font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--dim)}
+.prog-desc{margin-top:14px;color:var(--silver);max-width:60ch;font-size:14.5px;line-height:1.65}
+.specs{margin-top:22px;border-top:1px solid var(--line)}
+.spec{display:flex;justify-content:space-between;gap:18px;padding:11px 2px;border-bottom:1px solid var(--line);transition:background .15s}
+.spec .s-key{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;color:var(--dim);text-transform:uppercase;flex:none}
+.spec .s-val{font-weight:600;color:var(--white);font-size:13px;text-align:right;transition:color .15s}
+.spec:hover{background:var(--panel)}
+.spec:hover .s-val{color:var(--orange)}
+.prog-actions{margin-top:22px;display:flex;gap:10px;flex-wrap:wrap}
+.phases{margin-top:20px}
+/* ============ PROJECT FIGURE & BROWSER MOCKUP ============ */
+.fig{
+  border:1px solid var(--line);
+  background:var(--panel);
+  overflow:hidden;
+  border-radius:4px;
+  box-shadow:0 18px 40px -14px rgba(0,0,0,0.6);
+  transition:border-color .25s ease;
+}
+.fig:hover{
+  border-color:var(--line2);
+}
+.fig-cap{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:10px 14px;
+  background:var(--panel2);
+  border-bottom:1px solid var(--line);
+  font-family:var(--mono);
+  font-size:10px;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.fig-cap span{color:var(--dim)}
+.fig-cap b{color:var(--orange);font-family:var(--anton);font-size:13px;font-weight:400;letter-spacing:.05em}
+
+.fig-img{
+  position:relative;
+  width:100%;
+  aspect-ratio:2/1;
+  overflow:hidden;
+  background:#08090b;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.fig-img img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center top;
+  display:block;
+  transition:transform .45s cubic-bezier(0.2,0.8,0.2,1);
+}
+.fig-img:hover img{
+  transform:scale(1.035);
+}
+.fig-sub{
+  padding:10px 14px;
+  font-family:var(--mono);
+  font-size:10.5px;
+  font-weight:500;
+  letter-spacing:.12em;
+  color:var(--silver);
+  text-transform:uppercase;
+  background:var(--panel);
+  border-top:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.fig-sub::before{
+  content:'//';
+  color:var(--orange);
+  font-weight:700;
+  font-size:11px;
+}
+.ph-title{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--orange);margin-bottom:12px;text-transform:uppercase}
+.phase{padding:10px 0 12px;border-bottom:1px solid var(--line)}
+.p-head{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+.p-head b{font-family:var(--anton);font-weight:400;color:var(--white);font-size:14px;letter-spacing:.03em;text-transform:uppercase}
+.p-head span{font-family:var(--mono);font-size:9.5px;color:var(--orange);letter-spacing:.12em}
+.phase p{margin-top:4px;font-size:12px;color:var(--dim)}
+.p-bar{margin-top:8px;height:3px;background:var(--line)}
+.p-bar i{display:block;height:100%;background:var(--orange);width:0;transition:width 1s var(--ease) .15s}
+.prog-panel.live .p-bar i{width:var(--w)}
+
+/* ============ KEAHLIAN (SKILLS SECTION - 4 COLUMNS) ============ */
+.skills-scale{display:flex;gap:18px;flex-wrap:wrap;align-items:center;padding:12px 18px;background:var(--panel);border:1px solid var(--line);margin-bottom:28px;font-family:var(--mono);font-size:10px;letter-spacing:.12em}
+.skills-scale-lbl{color:var(--dim);font-weight:600;text-transform:uppercase}
+.scale-pill{display:flex;align-items:center;gap:6px;color:var(--silver)}
+.scale-dot{width:6px;height:6px;border-radius:50%}
+.scale-dot.l1{background:var(--line2)}
+.scale-dot.l2{background:var(--silver)}
+.scale-dot.l3{background:var(--white);box-shadow:0 0 5px rgba(243,241,236,.4)}
+.scale-dot.l4{background:var(--orange);box-shadow:0 0 6px var(--orange)}
+
+.skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(16px,1.8vw,24px)}
+.skill-card{border:1px solid var(--line);background:var(--panel);padding:clamp(18px,2vw,24px);display:flex;flex-direction:column;justify-content:space-between}
+.skill-card-head{display:flex;align-items:center;gap:12px;margin-bottom:16px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.skill-icon{width:38px;height:38px;border:1px solid var(--line2);background:var(--bg);display:flex;align-items:center;justify-content:center;color:var(--orange);flex:none}
+.skill-icon svg{width:18px;height:18px}
+.skill-card-head h3{font-family:var(--anton);font-weight:400;font-size:18px;color:var(--white);text-transform:uppercase;letter-spacing:.02em;line-height:1.1}
+.skill-card-head .mono{font-size:9px}
+.skill-list{display:flex;flex-direction:column;gap:13px}
+.skill-item{display:flex;flex-direction:column;gap:5px}
+.sk-top{display:flex;justify-content:space-between;align-items:center;gap:6px}
+.sk-name{font-size:12.5px;font-weight:600;color:var(--silver);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.sk-badge{font-family:var(--mono);font-size:8px;letter-spacing:.12em;text-transform:uppercase;padding:2px 5px;border-radius:2px;flex:none}
+.sk-badge.expert{background:rgba(255,77,0,.15);color:var(--orange);border:1px solid rgba(255,77,0,.3)}
+.sk-badge.advanced{background:rgba(243,241,236,.1);color:var(--white);border:1px solid var(--line2)}
+.sk-badge.proficient{background:rgba(243,241,236,.06);color:var(--silver);border:1px solid var(--line)}
+.sk-badge.applied{background:rgba(120,126,133,.12);color:var(--dim);border:1px solid var(--line)}
+.sk-badge.certified{background:rgba(16,185,129,.15);color:var(--green);border:1px solid rgba(16,185,129,.3)}
+.sk-meter{display:grid;grid-template-columns:repeat(4,1fr);gap:3.5px;height:4px}
+.sk-seg{background:var(--line);border-radius:1px;transition:background .3s}
+.sk-seg.active-o{background:var(--orange);box-shadow:0 0 5px rgba(255,77,0,.45)}
+.sk-seg.active-c,
+.sk-seg.active-w{background:var(--white);box-shadow:0 0 5px rgba(243,241,236,.45)}
+.sk-seg.active-g{background:var(--green);box-shadow:0 0 5px rgba(16,185,129,.45)}
+
+/* ============ CARDS UMUM PENGALAMAN & ORGANISASI ============ */
+.exp-cards{display:flex;flex-direction:column;gap:20px}
+.org-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.exp-card{border:1px solid var(--line);background:var(--panel);padding:clamp(20px,2.5vw,32px);position:relative;transition:border-color .2s}
+.exp-card:hover{border-color:var(--line2)}
+.exp-card::before{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;background:var(--orange);opacity:0;transition:opacity .2s}
+.exp-card:hover::before{opacity:1}
+.exp-header{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;flex-wrap:wrap;margin-bottom:14px}
+.exp-title-box{display:flex;gap:14px;align-items:center}
+.exp-logo{width:46px;height:46px;border:1px solid var(--line2);background:#fff;border-radius:4px;padding:4px;object-fit:contain;flex:none}
+.exp-title-box h3{font-family:var(--anton);font-weight:400;font-size:22px;color:var(--white);text-transform:uppercase;letter-spacing:.02em}
+.exp-title-box .inst{font-family:var(--mono);font-size:12px;color:var(--orange);letter-spacing:.1em;margin-top:2px}
+.exp-period{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--dim);background:var(--bg);padding:6px 12px;border:1px solid var(--line)}
+.exp-desc{color:var(--silver);font-size:14px;line-height:1.6;margin-bottom:14px}
+.exp-bullets{display:flex;flex-direction:column;gap:8px;padding-left:18px;margin-bottom:18px}
+.exp-bullets li{list-style:disc;font-size:13.5px;color:var(--silver);line-height:1.55}
+.exp-bullets li strong{color:var(--white)}
+.exp-tags{display:flex;gap:8px;flex-wrap:wrap}
+.exp-tag{font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;padding:4px 9px;background:var(--bg);border:1px solid var(--line);color:var(--dim)}
+
+/* ============ SECTION PENDIDIKAN ============ */
+.edu-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(20px,2.5vw,36px);align-items:stretch}
+.edu-main-card{border:1px solid var(--line);background:var(--panel);padding:clamp(22px,2.8vw,36px);display:flex;flex-direction:column;justify-content:space-between;position:relative}
+.edu-main-card::before{content:'';position:absolute;top:-1px;left:-1px;width:24px;height:24px;border-top:2px solid var(--orange);border-left:2px solid var(--orange)}
+.edu-head{display:flex;gap:16px;align-items:center;margin-bottom:20px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.edu-logo{width:56px;height:56px;border:1px solid var(--line2);background:#fff;border-radius:4px;padding:5px;object-fit:contain;flex:none}
+.edu-title-box h3{font-family:var(--anton);font-weight:400;font-size:clamp(22px,2.5vw,30px);color:var(--white);text-transform:uppercase;letter-spacing:.02em;line-height:1.1}
+.edu-title-box .inst{font-family:var(--mono);font-size:11px;color:var(--dim);letter-spacing:.12em;margin-top:4px}
+.edu-meta-badges{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:16px}
+.edu-badge-orange{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;background:rgba(255,77,0,.12);border:1px solid rgba(255,77,0,.3);color:var(--orange);font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.08em}
+.edu-badge-green{display:inline-flex;align-items:center;gap:6px;padding:5px 12px;background:rgba(16,185,129,.12);border:1px solid rgba(16,185,129,.3);color:var(--green);font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.08em}
+.edu-desc{color:var(--silver);font-size:14px;line-height:1.7;margin-bottom:22px}
+.edu-specs-title{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;color:var(--orange);text-transform:uppercase;margin-bottom:10px}
+.edu-specs-tags{display:flex;gap:8px;flex-wrap:wrap}
+.edu-spec-pill{font-family:var(--mono);font-size:10px;padding:5px 11px;background:var(--bg);border:1px solid var(--line2);color:var(--silver);letter-spacing:.08em}
+.edu-side-cards{display:flex;flex-direction:column;gap:18px}
+.edu-side-card{border:1px solid var(--line);background:var(--panel);padding:22px;flex:1;display:flex;flex-direction:column;justify-content:center}
+.edu-side-card h4{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;color:var(--orange);text-transform:uppercase;margin-bottom:14px}
+.lang-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.lang-row:last-child{border-bottom:0;padding-bottom:0}
+.lang-row .l-name{font-weight:700;color:var(--white);font-size:14px}
+.lang-row .l-sub{display:block;font-size:11px;color:var(--dim)}
+.lang-badge{font-family:var(--mono);font-size:9.5px;padding:3px 8px;border-radius:2px;letter-spacing:.08em}
+.lang-badge.native{background:rgba(16,185,129,.15);color:var(--green);border:1px solid rgba(16,185,129,.3)}
+.lang-badge.working{background:rgba(243,241,236,.1);color:var(--white);border:1px solid var(--line2)}
+.honor-card h5{font-family:var(--anton);font-weight:400;font-size:22px;color:var(--white);letter-spacing:.02em;margin-bottom:6px}
+.honor-card p{font-size:13px;color:var(--silver);line-height:1.6}
+
+/* ============ KREDENSIAL SERTIFIKASI ============ */
+.certs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.cert-card{border:1px solid var(--line);background:var(--panel);padding:20px;display:flex;flex-direction:column;justify-content:space-between;
+  cursor:pointer;transition:border-color .2s,transform .2s}
+.cert-card:hover{border-color:var(--orange);transform:translateY(-3px)}
+.cert-logo-box{width:100%;aspect-ratio:16/9;background:#fff;border-radius:2px;display:flex;align-items:center;justify-content:center;padding:12px;margin-bottom:14px}
+.cert-logo-box img{max-height:100%;max-width:100%;object-fit:contain}
+.cert-info .code{display:block;font-family:var(--mono);font-size:9px;color:var(--orange);letter-spacing:.16em;text-transform:uppercase;margin-bottom:6px}
+.cert-info h4{font-family:var(--anton);font-weight:400;font-size:18px;color:var(--white);letter-spacing:.02em;line-height:1.15;margin-bottom:6px}
+.cert-info p{font-size:12px;color:var(--dim);line-height:1.45}
+.cert-foot{display:flex;align-items:center;justify-content:space-between;margin-top:14px;padding-top:10px;border-top:1px solid var(--line);font-family:var(--mono);font-size:9.5px;color:var(--green)}
+.cert-foot .view-lbl{color:var(--orange);display:flex;align-items:center;gap:4px}
+
+/* ============ STUDI KASUS EFISIENSI SISTEM ============ */
+.case-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.case-card{border:1px solid var(--line);background:var(--panel);display:flex;flex-direction:column;position:relative}
+.case-thumb{position:relative;aspect-ratio:16/10;overflow:hidden;background:#0d0e11}
+.case-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+.case-card:hover .case-thumb img{transform:scale(1.04)}
+.case-badge{position:absolute;top:10px;left:10px;font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;background:rgba(11,12,13,.9);
+  color:var(--orange);padding:4px 8px;border:1px solid var(--line2)}
+.case-body{padding:22px;flex:1;display:flex;flex-direction:column}
+.case-body h3{font-family:var(--anton);font-weight:400;font-size:20px;color:var(--white);letter-spacing:.02em;line-height:1.15}
+.case-client{font-family:var(--mono);font-size:10px;color:var(--cyan);letter-spacing:.12em;margin-top:4px}
+.case-quote{margin:12px 0 16px;font-size:13px;color:var(--silver);font-style:italic;line-height:1.55}
+.case-deltas{margin-top:auto;display:grid;grid-template-columns:1fr 1fr;gap:8px;border-top:1px solid var(--line);padding-top:14px}
+.c-delta{background:var(--bg);padding:8px 10px;border:1px solid var(--line)}
+.c-delta .k{display:block;font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;color:var(--dim);text-transform:uppercase}
+.c-delta .v{display:block;margin-top:3px;font-size:11.5px;font-weight:700;color:var(--white);line-height:1.2}
+.c-delta .from{color:var(--dim);text-decoration:line-through;margin-right:4px;font-size:10.5px}
+.c-delta .to{color:var(--green)}
+
+/* ============ PERNYATAAN ============ */
+.statement{padding:clamp(40px,5vw,72px) clamp(16px,3vw,40px);background:var(--panel2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);text-align:center}
+.statement p{font-family:var(--anton);font-weight:400;font-size:clamp(22px,4vw,52px);line-height:1.05;color:var(--white);letter-spacing:.01em}
+.statement p em{font-style:normal;color:var(--orange)}
+.statement .mono{display:block;margin-top:14px;color:var(--dim);font-size:10px;letter-spacing:.25em}
+
+/* ============ KONTAK & FORM ============ */
+#contact{background:var(--bg);position:relative;overflow:hidden}
+.bg-word{position:absolute;bottom:-30px;right:-20px;font-family:var(--anton);font-size:clamp(80px,18vw,260px);line-height:.8;
+  color:rgba(255,255,255,.015);user-select:none;pointer-events:none}
+.contact-quick-cards{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:36px}
+.c-card{background:var(--panel);border:1px solid var(--line);padding:18px 14px;display:flex;flex-direction:column;align-items:center;text-align:center;gap:8px;transition:border-color .2s,transform .2s}
+.c-card i,.c-card svg{width:20px;height:20px;color:var(--orange)}
+.c-card .c-lbl{font-family:var(--mono);font-size:9px;letter-spacing:.16em;color:var(--dim);text-transform:uppercase}
+.c-card .c-val{font-size:12.5px;font-weight:700;color:var(--white);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+
+.contact-layout{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,4.5vw,72px);align-items:start}
+.list-title{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--orange);
+  text-transform:uppercase;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:16px}
+.inc-list li{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid var(--line);font-size:13.5px;color:var(--silver)}
+.inc-list li i{color:var(--orange);width:16px;height:16px;flex:none}
+.inc-list li b{margin-left:auto;font-family:var(--mono);font-size:10px;color:var(--dim);letter-spacing:.14em}
+.contact-rows{margin-top:28px;display:flex;flex-direction:column;gap:14px}
+.c-row{display:flex;gap:14px;align-items:flex-start}
+.c-row i{width:18px;height:18px;color:var(--orange);margin-top:2px;flex:none}
+.c-row .lbl{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;color:var(--dim);text-transform:uppercase}
+.c-row .val{display:block;font-size:14px;color:var(--white);font-weight:600;margin-top:2px}
+.c-row a.val:hover{color:var(--orange)}
+
+.form-card{border:1px solid var(--line2);background:var(--panel);position:relative;box-shadow:0 30px 60px rgba(0,0,0,.6)}
+.form-hz{height:8px;background:repeating-linear-gradient(45deg,var(--orange),var(--orange) 10px,#0b0c0d 10px,#0b0c0d 20px)}
+.form-head{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;border-bottom:1px solid var(--line);
+  font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--dim)}
+.form-head b{color:var(--orange)}
+.form-body{padding:clamp(20px,2.5vw,32px)}
+.field{margin-bottom:18px;position:relative}
+.field label{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--dim);text-transform:uppercase;margin-bottom:7px}
+.field input,.field select,.field textarea{width:100%;background:var(--bg);border:1px solid var(--line2);color:var(--white);
+  padding:12px 14px;font-family:inherit;font-size:14px;border-radius:0;outline:none;transition:border-color .2s,box-shadow .2s}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--orange);box-shadow:0 0 0 2px var(--orange-soft)}
+.field textarea{min-height:90px;resize:vertical}
+.field .err{display:none;margin-top:5px;font-family:var(--mono);font-size:9.5px;color:var(--orange);letter-spacing:.08em}
+.field.invalid input,.field.invalid select,.field.invalid textarea{border-color:var(--orange)}
+.field.invalid .err{display:block}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.select{position:relative}
+.select select{appearance:none;-webkit-appearance:none;padding-right:36px;cursor:pointer}
+.select .sel-arrow{position:absolute;right:12px;top:50%;transform:translateY(-50%);width:16px;height:16px;color:var(--dim);pointer-events:none}
+.form-submit{width:100%;justify-content:center;margin-top:6px}
+.form-note{margin-top:14px;text-align:center;font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;color:var(--dim)}
+.form-success{display:none;padding:clamp(32px,5vw,60px) clamp(20px,3vw,36px);text-align:center}
+.form-card.done .form-body{display:none}
+.form-card.done .form-success{display:flex;flex-direction:column;align-items:center}
+.form-success i{color:var(--orange);width:52px;height:52px;margin-bottom:16px}
+.form-success h3{font-family:var(--anton);font-weight:400;font-size:32px;color:var(--white);text-transform:uppercase}
+.form-success p{color:var(--silver);font-size:14px;max-width:44ch;margin-top:10px}
+.form-success .sum{margin:20px 0;padding:14px 20px;border:1px solid var(--line);background:var(--bg);text-align:left;width:100%;max-width:380px}
+.form-success .sum div{display:flex;justify-content:space-between;padding:4px 0;font-size:12.5px}
+.form-success .sum span{font-family:var(--mono);font-size:9.5px;color:var(--dim)}
+.form-success .sum b{color:var(--white)}
+.success-btns{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:10px}
+
+/* ============ MODAL SYSTEM ============ */
+.modal-overlay{position:fixed;inset:0;z-index:9999;background:rgba(11,12,13,.88);backdrop-filter:blur(8px);
+  display:none;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.open{display:flex}
+.modal-card{background:var(--panel);border:1px solid var(--line2);max-width:760px;width:100%;max-height:90vh;overflow-y:auto;
+  position:relative;box-shadow:0 30px 80px rgba(0,0,0,.8);animation:modalIn .3s var(--ease)}
+@keyframes modalIn{from{opacity:0;transform:scale(.95) translateY(20px)}to{opacity:1;transform:none}}
+.modal-head{display:flex;justify-content:space-between;align-items:center;padding:14px 20px;border-bottom:1px solid var(--line);
+  font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--orange)}
+.modal-close-btn{width:32px;height:32px;display:flex;align-items:center;justify-content:center;color:var(--dim);transition:color .2s}
+.modal-close-btn:hover{color:var(--white)}
+.modal-close-btn svg{width:18px;height:18px}
+.modal-preview{background:#0d0e11;border-bottom:1px solid var(--line);padding:14px;display:flex;align-items:center;justify-content:center}
+.modal-preview img{max-height:48vh;width:auto;max-width:100%;object-fit:contain}
+.modal-content{padding:24px}
+.modal-content h3{font-family:var(--anton);font-weight:400;font-size:26px;color:var(--white);letter-spacing:.02em;text-transform:uppercase}
+.modal-meta-line{font-family:var(--mono);font-size:10.5px;color:var(--dim);letter-spacing:.12em;margin-top:4px;margin-bottom:20px}
+.modal-section{margin-bottom:20px}
+.modal-section h4{font-family:var(--mono);font-size:10px;letter-spacing:.2em;color:var(--orange);text-transform:uppercase;margin-bottom:8px}
+.modal-section p{font-size:14px;color:var(--silver);line-height:1.65}
+.modal-features{padding-left:18px;display:flex;flex-direction:column;gap:6px}
+.modal-features li{list-style:disc;font-size:13.5px;color:var(--silver);line-height:1.55}
+.modal-tech-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.modal-tech-tags span{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;padding:4px 8px;background:var(--bg);border:1px solid var(--line2);color:var(--white)}
+.modal-foot-actions{display:flex;gap:10px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:18px;margin-top:24px}
+
+/* ============ FOOTER ============ */
+footer{position:relative;background:#08090a;border-top:1px solid var(--line);padding:0 clamp(16px,3vw,40px) clamp(20px,3vw,36px)}
+.hz{height:8px;background:repeating-linear-gradient(45deg,var(--orange),var(--orange) 10px,#0b0c0d 10px,#0b0c0d 20px);margin:0 calc(-1 * clamp(16px,3vw,40px))}
+.foot-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,3fr) minmax(0,4fr);gap:clamp(32px,5vw,64px);padding-top:clamp(40px,5vw,68px)}
+.foot-brand p{color:var(--dim);font-size:13.5px;max-width:42ch;margin-top:16px}
+.socials{display:flex;gap:10px;margin-top:20px}
+.socials a{width:42px;height:42px;border:1px solid var(--line2);display:flex;align-items:center;justify-content:center;
+  color:var(--silver);transition:border-color .2s,color .2s,background .2s}
+.socials a:hover{border-color:var(--orange);color:var(--orange);background:var(--orange-soft)}
+.socials svg{width:18px;height:18px;stroke:currentColor}
+.foot-nav{display:flex;flex-direction:column;gap:2px}
+.foot-nav a{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--dim);padding:7px 0;transition:color .2s}
+.foot-nav a:hover{color:var(--orange)}
+.foot-meta{display:flex;flex-direction:column;gap:10px;align-items:flex-start;font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--dim);text-transform:uppercase}
+.foot-meta b{color:var(--white)}
+.foot-name{max-width:1360px;margin:clamp(40px,6vw,72px) auto 0;font-family:var(--anton);font-size:clamp(38px,9.2vw,148px);line-height:.9;
+  text-transform:uppercase;color:transparent;-webkit-text-stroke:1px var(--line2);text-align:center;transition:-webkit-text-stroke-color .5s;
+  user-select:none;white-space:nowrap;overflow:hidden}
+.foot-name:hover{-webkit-text-stroke-color:var(--orange)}
+.foot-credit{margin:26px auto 0;padding-top:18px;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:14px;
+  flex-wrap:wrap;font-family:var(--mono);font-size:9px;letter-spacing:.16em;color:var(--dim);text-transform:uppercase}
+
+/* ============ TOAST ============ */
+#toasts{position:fixed;top:84px;right:16px;z-index:9000;display:flex;flex-direction:column;gap:10px;max-width:min(360px,calc(100vw - 32px))}
+.toast{background:var(--panel2);border:1px solid var(--line2);border-left:3px solid var(--orange);padding:14px 42px 14px 16px;
+  position:relative;animation:toastIn .35s var(--ease)}
+.toast.hide{animation:toastOut .3s forwards}
+.toast h5{font-family:var(--mono);font-size:9.5px;letter-spacing:.2em;color:var(--orange);text-transform:uppercase}
+.toast p{margin-top:5px;font-size:13px;color:var(--silver)}
+.toast .t-close{position:absolute;top:10px;right:10px;color:var(--dim);width:22px;height:22px;display:flex;align-items:center;justify-content:center}
+.toast .t-close:hover{color:var(--white)}
+.toast .t-close svg{width:13px;height:13px}
+@keyframes toastIn{from{opacity:0;transform:translateX(24px)}}
+@keyframes toastOut{to{opacity:0;transform:translateX(24px)}}
+
+/* ============ RESPONSIF ============ */
+@media (min-width:1240px){.hero-side{display:block}}
+@media (max-width:1200px){
+  .skills-grid{grid-template-columns:repeat(2,1fr)}
+  .certs-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:1080px){
+  .about-grid,.edu-grid,.case-cards{grid-template-columns:1fr}
+  .prog-body,.contact-layout{grid-template-columns:minmax(0,1fr)}
+  .nav-loc{display:none}
+}
+@media (max-width:860px){
+  #menu{display:flex}
+  .nav-links{display:none}
+  #burger{display:flex}
+  .prog-layout{grid-template-columns:minmax(0,1fr)}
+  .tabs{display:grid;grid-template-columns:repeat(2,1fr);border-top:0;border-bottom:1px solid var(--line)}
+  .tab{border-bottom:1px solid var(--line);border-right:1px solid var(--line);flex-direction:column;align-items:flex-start;gap:4px;padding:12px 10px}
+  .tab:nth-child(2n){border-right:0}
+  .tab .t-arrow{display:none}
+  .tab .t-name{font-size:15px}
+  .tab[aria-selected="true"]{padding-left:12px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat{border-top:1px solid var(--line)}
+  .stat:nth-child(-n+2){border-top:0}
+  .stat:nth-child(3){border-left:0;padding-left:0}
+  .org-grid{grid-template-columns:1fr}
+  .contact-quick-cards{grid-template-columns:repeat(2,1fr)}
+  .field-row{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr}
+  .form-hz,.hz{height:6px}
+}
+@media (max-width:640px){
+  .skills-grid{grid-template-columns:1fr}
+  .certs-grid{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  .logo-name{display:none}
+  .dossier-orgs{grid-template-columns:1fr}
+  h1.display .stroke{margin-left:0}
+  .tabs{grid-template-columns:1fr}
+  .tab{border-right:0}
+  .contact-quick-cards{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<div id="grain" aria-hidden="true"></div>
+<div id="progress" aria-hidden="true"></div>
+
+<!-- ================= NAV ================= -->
+<header id="nav">
+  <a class="logo" href="#hero" aria-label="Mirwan Kholid — beranda">
+    <span class="logo-mark">MK</span>
+    <span class="logo-name">MIRWAN KHOLID, S.KOM.</span>
+  </a>
+  <nav class="nav-links" aria-label="Navigasi utama">
+    <a href="#about">PROFIL</a>
+    <a href="#projects">PROYEK</a>
+    <a href="#skills">KEAHLIAN</a>
+    <a href="#work">KERJA</a>
+    <a href="#organization">ORGANISASI</a>
+    <a href="#education">PENDIDIKAN</a>
+    <a href="#certs">KREDENSIAL</a>
+    <a href="#contact">KONTAK</a>
+  </nav>
+  <div class="nav-right">
+    <span class="nav-loc">BDG — <b>AVAILABLE FOR HIRE</b></span>
+    <a href="#contact" class="btn btn-solid btn-sm magnetic">REKRUT SAYA</a>
+    <button id="burger" aria-label="Buka menu navigasi"><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- menu layar penuh (mobile) -->
+<div id="menu">
+  <nav aria-label="Menu seluler">
+    <a href="#about"><span>01</span>PROFIL &amp; FILOSOFI</a>
+    <a href="#projects"><span>02</span>8 SISTEM PRODUKSI</a>
+    <a href="#skills"><span>03</span>STACK KEAHLIAN</a>
+    <a href="#work"><span>04</span>PENGALAMAN KERJA</a>
+    <a href="#organization"><span>05</span>PENGALAMAN ORGANISASI</a>
+    <a href="#education"><span>06</span>LATAR BELAKANG PENDIDIKAN</a>
+    <a href="#certs"><span>07</span>KREDENSIAL SERTIFIKASI</a>
+    <a href="#contact"><span>08</span>HUBUNGI SAYA</a>
+  </nav>
+  <div class="menu-foot mono">@MIRWANKHOLID — UNIKOM BANDUNG, ID</div>
+</div>
+
+<main>
+<!-- ================= HERO SECTION ================= -->
+<section id="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <span class="hero-side mono" aria-hidden="true">FULL-STACK WEB DEV &amp; DATA ANALYST — UNIKOM 2022–2026</span>
+
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-top reveal">
+        <span><b>FULL-STACK WEB DEV</b> · <span class="cyan-badge">CERTIFIED DATA ANALYST (BNSP)</span></span>
+        <span>S.KOM. · IPK 3.68 HIGH DISTINCTION</span>
+      </div>
+
+      <h1 class="display reveal" style="--d:.06s">MIRWAN<span class="stroke">KHOLID</span></h1>
+      <p class="hero-sub reveal" style="--d:.14s">Sarjana Sistem Informasi UNIKOM yang memadukan rekayasa aplikasi web enterprise dengan analitik data terapan bersertifikasi BNSP.</p>
+      <div class="hero-cta reveal" style="--d:.2s">
+        <a href="#projects" class="btn btn-solid magnetic">Eksplorasi Proyek <i data-lucide="arrow-down"></i></a>
+        <a href="https://wa.me/6281211547844?text=Halo%20Mirwan,%20saya%20tertarik%20dengan%20portofolio%20Anda%20dan%20ingin%20berdiskusi" target="_blank" rel="noopener" class="btn btn-ghost">Chat WhatsApp <i data-lucide="message-circle"></i></a>
+        <a href="mailto:mirwankholid06@gmail.com" class="btn btn-ghost" title="mirwankholid06@gmail.com"><i data-lucide="mail"></i> Email</a>
+        <a href="https://github.com/mirwan10522114-jpg" target="_blank" rel="noopener" class="btn btn-ghost" title="GitHub"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg> GitHub</a>
+        <a href="https://linkedin.com/in/mirwan-kholid-902038362/" target="_blank" rel="noopener" class="btn btn-ghost" title="LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg> LinkedIn</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="stats reveal" style="--d:.15s">
+    <div class="stat"><b><span class="cnt" data-count="8" data-pad="2">00</span><i>+</i></b><span class="stat-lbl">SISTEM PRODUKSI</span></div>
+    <div class="stat"><b><span class="cnt" data-count="3" data-pad="1">0</span>.68<i>/4</i></b><span class="stat-lbl">IPK UNIKOM (HIGH DISTINCTION)</span></div>
+    <div class="stat"><b><span class="cnt" data-count="4" data-pad="2">00</span><i>+</i></b><span class="stat-lbl">KREDENSIAL NASIONAL &amp; GLOBAL</span></div>
+    <div class="stat"><b><span class="cnt" data-count="4" data-pad="2">00</span><i></i></b><span class="stat-lbl">KEPEMIMPINAN ORGANISASI</span></div>
+  </div>
+</section>
+
+<!-- pita berjalan: keahlian & stack -->
+<div class="marquee" aria-hidden="true"><div class="mq-track" id="mqTrack"></div></div>
+
+<!-- ================= SEC. 01: PROFILE & PHILOSOPHY (V1 NARRATIVE) ================= -->
+<section id="about">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="idx">01</span>
+      <div>
+        <span class="kicker">SEC. 01 — PROFIL &amp; FILOSOFI REKAYASA</span>
+        <h2>SISTEM BERSIH UNTUK MASALAH <em>OPERASIONAL RIIL.</em></h2>
+        <p class="lead">Menjembatani keahlian rekayasa aplikasi web modern full-stack dan analitik data terakreditasi nasional untuk memecahkan hambatan operasional nyata.</p>
+      </div>
+    </div>
+
+    <div class="about-grid reveal">
+      <div class="about-narrative">
+        <p>Saya adalah lulusan Sarjana Sistem Informasi dari <strong>Universitas Komputer Indonesia (UNIKOM)</strong>. Fokus utama saya menjembatani <strong>rekayasa aplikasi web modern full-stack</strong> dan <strong>analitik data terakreditasi nasional (BNSP SKKNI)</strong>.</p>
+        <p>Baik dalam mendigitisasi alur Kenaikan Gaji Berkala (KGB) guru untuk <strong>Dinas Pendidikan Kab. Bandung Barat</strong>, membangun sistem timbangan digital &amp; tabungan <strong>Bank Sampah Sukamaju Sejahtera</strong>, maupun memodelkan intelijen bisnis lewat statistik data, saya memprioritaskan <em>arsitektur bersih, integritas basis data (3NF), dan dampak operasional yang terukur</em>.</p>
+        <p>Di luar kode teknis, amanah kepemimpinan sebagai <strong>Ketua</strong> dan <strong>Wakil Ketua</strong> di berbagai organisasi tingkat universitas hingga daerah mengasah kepemimpinan eksekutif, komunikasi lintas fungsi, dan manajemen proyek yang berorientasi hasil nyata.</p>
+
+        <div class="about-tags">
+          <span class="about-tag">Full-Stack Web Dev</span>
+          <span class="about-tag cyan">Certified Data Analyst (BNSP)</span>
+          <span class="about-tag">Laravel 13 &amp; Next.js 14</span>
+          <span class="about-tag cyan">Python &amp; Power BI</span>
+          <span class="about-tag">Relational Database 3NF</span>
+          <span class="about-tag">Executive Leader</span>
+        </div>
+      </div>
+
+      <div class="about-box">
+        <div class="about-box-title">// PRINSIP REKAYASA SISTEM</div>
+        <div class="about-quote">"KODE BERKUALITAS MENGUBAH <span>KOMPLEKSITAS</span> MENJADI <span>EFISIENSI.</span>"</div>
+        <p class="about-quote-sub">Setiap baris kode, kueri database, dan rancangan antarmuka dirancang untuk meminimalkan friksi kerja pengguna, menjaga keamanan akses (RBAC), serta menyajikan data valid untuk keputusan manajemen tingkat tinggi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SEC. 02: 8 SISTEM PRODUKSI ================= -->
+<section id="projects" style="background:var(--panel2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="idx">02</span>
+      <div>
+        <span class="kicker">SEC. 02 — ARSITEKTUR &amp; SISTEM PRODUKSI</span>
+        <h2>SOLUSI TEKNOLOGI YANG <em>TERUJI.</em></h2>
+        <p class="lead">Bukan sekadar template tutorial. Setiap sistem dibangun dari identifikasi masalah bisnis nyata: otomatisasi birokrasi pemerintahan, digitalisasi komunitas, tata kelola armada, hingga validasi presensi geofence.</p>
+      </div>
+    </div>
+    <div class="prog-layout">
+      <div class="tabs reveal" id="progTabs" role="tablist" aria-label="Pilih sistem dan proyek"></div>
+      <div class="prog-panel reveal" id="progPanel" role="tabpanel" style="--d:.12s"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SEC. 03: KEAHLIAN TEKNIS (4 COLUMNS - V1 MATCH) ================= -->
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="idx">03</span>
+      <div>
+        <span class="kicker">SEC. 03 — KEAHLIAN &amp; KOMPETENSI</span>
+        <h2>STACK TEKNOLOGI &amp; <em>METODOLOGI.</em></h2>
+        <p class="lead">Penguasaan menyeluruh dari lapisan antarmuka pengguna, arsitektur server MVC, normalisasi basis data (3NF), hingga pemodelan statistik data.</p>
+      </div>
+    </div>
+
+    <!-- Proficiency Scale Legend from V1 -->
+    <div class="skills-scale reveal">
+      <span class="skills-scale-lbl">Skala Kompetensi:</span>
+      <div class="scale-pill"><span class="scale-dot l1"></span><span>Applied (L1)</span></div>
+      <span style="color:var(--line2)">•</span>
+      <div class="scale-pill"><span class="scale-dot l2"></span><span>Proficient (L2)</span></div>
+      <span style="color:var(--line2)">•</span>
+      <div class="scale-pill"><span class="scale-dot l3"></span><span>Advanced (L3)</span></div>
+      <span style="color:var(--line2)">•</span>
+      <div class="scale-pill"><span class="scale-dot l4"></span><span style="color:var(--orange);font-weight:700">Expert (L4)</span></div>
+    </div>
+
+    <div class="skills-grid reveal">
+      <!-- Card 1: Full-Stack -->
+      <div class="skill-card">
+        <div>
+          <div class="skill-card-head">
+            <div class="skill-icon"><i data-lucide="layers"></i></div>
+            <div>
+              <h3>FULL-STACK WEB</h3>
+              <span class="mono" style="color:var(--dim)">ENGINEERING &amp; API</span>
+            </div>
+          </div>
+          <div class="skill-list">
+            <div class="skill-item">
+              <div class="sk-top"><span class="sk-name">PHP &amp; Laravel (11/13)</span><span class="sk-badge advanced">ADVANCED</span></div>
+              <div class="sk-meter"><div class="sk-seg active-o"></div><div class="sk-seg active-o"></div><div class="sk-seg active-o"></div><div class="sk-seg"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="sk-top"><span class="sk-name">React.js &amp; Next.js</span><span class="sk-badge proficient">PROFICIENT</span></div>
+              <div class="sk-meter"><div class="sk-seg active-c"></div><div class="sk-seg active-c"></div><div class="sk-seg"></div><div class="sk-seg"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="sk-top"><span class="sk-name">JavaScript (ES6+)</span><span class="sk-badge proficient">PROFICIENT</span></div>
+              <div class="sk-meter"><div class="sk-seg active-c"></div><div class="sk-seg active-c"></div><div class="sk-seg"></div><div class="sk-seg"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="sk-top"><span class="sk-name">HTML5 &amp; CSS3</span><span class="sk-badge expert">EXPERT</span></div>
+              <div class="sk-meter"><div class="sk-seg active-o"></div><div class="sk-seg active-o"></div><div class="sk-seg active-o"></div><div class="sk-seg active-o"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="sk-top"><span class="sk-name">Tailwind CSS 4</span><span class="sk-badge expert">EXPERT</span></div>
+              <div class="sk-meter"><div class="sk-seg active-o"></div><div class="sk-seg active-o"></div><div class="sk-seg active-o"></div><div class="sk-seg active-o"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="sk-top"><span class="sk-name">RESTful APIs Architecture</span><span class="sk-badge applied">APPLIED</span></div>
+              <div class="sk-meter"><div class="sk-seg active-w"></div><div class="sk-seg"></div><div class="sk-seg"></div><div class="sk-seg"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2: Data Analytics -->
+      <div class="skill-card">
+        <div>
+          <div class="skill-card-head">
+            <div class="skill-icon" style="color:var(--white);border-color:var(--line2)"><i data-lucide="bar-chart-2"></i></div>
+            <div>
+              <h3>DATA ANALYTICS &amp; BI</h3>
+              <span class="mono" style="color:var(--dim)">SKKNI &amp; MODELING</span>
+            </div>
+          </div>
+          <div class="skill-list">
+            <div class="skill-item">
+              <div class="sk-top"><span class="sk-name">BNSP Data Analyst</span><span class="sk-badge certified">CERTIFIED</span></div>
+              <div class="sk-meter"><div class="sk-seg active-g"></div><div class="sk-seg active-g"></div><div class="sk-seg active-g"></div><div class="sk-seg active-g"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="sk-top"><span class="sk-name">Python (Pandas, NumPy)</span><span class="sk-badge proficient">PROFICIENT</span></div>
+              <div class="sk-meter"><div class="sk-seg active-c"></div><div class="sk-seg active-c"></div><div class="sk-seg"></div><div class="sk-seg"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="sk-top"><span class="sk-name">Data Cleaning &amp; EDA</span><span class="sk-badge proficient">PROFICIENT</span></div>
+              <div class="sk-meter"><div class="sk-seg active-c"></div><div class="sk-seg active-c"></div><div class="sk-seg"></div><div class="sk-seg"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="sk-top"><span class="sk-name">Power BI Dashboards &amp; DAX</span><span class="sk-badge applied">APPLIED</span></div>
+              <div class="sk-meter"><div class="sk-seg active-c"></div><div class="sk-seg"></div><div class="sk-seg"></div><div class="sk-seg"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="sk-top"><span class="sk-name">Tableau Visualization</span><span class="sk-badge applied">APPLIED</span></div>
+              <div class="sk-meter"><div class="sk-seg active-c"></div><div class="sk-seg"></div><div class="sk-seg"></div><div class="sk-seg"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="sk-top"><span class="sk-name">Advanced SQL Analytics</span><span class="sk-badge advanced">ADVANCED</span></div>
+              <div class="sk-meter"><div class="sk-seg active-c"></div><div class="sk-seg active-c"></div><div class="sk-seg active-c"></div><div class="sk-seg"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3: Database & Architecture (V1 MATCH) -->
+      <div class="skill-card">
+        <div>
+          <div class="skill-card-head">
+            <div class="skill-icon" style="color:var(--orange);border-color:var(--orange)"><i data-lucide="database"></i></div>
+            <div>
+              <h3>DATABASE &amp; ARCH</h3>
+              <span class="mono" style="color:var(--dim)">RELATIONAL &amp; SAD</span>
+            </div>
+          </div>
+          <div class="skill-list">
+            <div class="skill-item">
+              <div class="sk-top"><span class="sk-name">MySQL / MariaDB</span><span class="sk-badge advanced">ADVANCED</span></div>
+              <div class="sk-meter"><div class="sk-seg active-o"></div><div class="sk-seg active-o"></div><div class="sk-seg active-o"></div><div class="sk-seg"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="sk-top"><span class="sk-name">Database Design (3NF)</span><span class="sk-badge advanced">ADVANCED</span></div>
+              <div class="sk-meter"><div class="sk-seg active-o"></div><div class="sk-seg active-o"></div><div class="sk-seg active-o"></div><div class="sk-seg"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="sk-top"><span class="sk-name">Systems Analysis (SAD)</span><span class="sk-badge expert">EXPERT</span></div>
+              <div class="sk-meter"><div class="sk-seg active-o"></div><div class="sk-seg active-o"></div><div class="sk-seg active-o"></div><div class="sk-seg active-o"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="sk-top"><span class="sk-name">DFD &amp; UML Modeling</span><span class="sk-badge proficient">PROFICIENT</span></div>
+              <div class="sk-meter"><div class="sk-seg active-o"></div><div class="sk-seg active-o"></div><div class="sk-seg"></div><div class="sk-seg"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="sk-top"><span class="sk-name">Git &amp; GitHub Flow</span><span class="sk-badge proficient">PROFICIENT</span></div>
+              <div class="sk-meter"><div class="sk-seg active-o"></div><div class="sk-seg active-o"></div><div class="sk-seg"></div><div class="sk-seg"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="sk-top"><span class="sk-name">System QA &amp; Testing</span><span class="sk-badge applied">APPLIED</span></div>
+              <div class="sk-meter"><div class="sk-seg active-o"></div><div class="sk-seg"></div><div class="sk-seg"></div><div class="sk-seg"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4: Leadership & Strategy -->
+      <div class="skill-card">
+        <div>
+          <div class="skill-card-head">
+            <div class="skill-icon" style="color:var(--white);border-color:var(--silver)"><i data-lucide="award"></i></div>
+            <div>
+              <h3>LEADERSHIP &amp; STRATEGY</h3>
+              <span class="mono" style="color:var(--dim)">ORGANISASI &amp; EKSEKUSI</span>
+            </div>
+          </div>
+          <div class="skill-list">
+            <div class="skill-item">
+              <div class="sk-top"><span class="sk-name">Executive Leadership</span><span class="sk-badge expert">PROVEN</span></div>
+              <div class="sk-meter"><div class="sk-seg active-o"></div><div class="sk-seg active-o"></div><div class="sk-seg active-o"></div><div class="sk-seg active-o"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="sk-top"><span class="sk-name">Cross-Functional Team</span><span class="sk-badge expert">PROVEN</span></div>
+              <div class="sk-meter"><div class="sk-seg active-o"></div><div class="sk-seg active-o"></div><div class="sk-seg active-o"></div><div class="sk-seg active-o"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="sk-top"><span class="sk-name">Strategic Project Mgmt</span><span class="sk-badge proficient">PROFICIENT</span></div>
+              <div class="sk-meter"><div class="sk-seg active-c"></div><div class="sk-seg active-c"></div><div class="sk-seg"></div><div class="sk-seg"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="sk-top"><span class="sk-name">Critical Thinking</span><span class="sk-badge expert">EXPERT</span></div>
+              <div class="sk-meter"><div class="sk-seg active-o"></div><div class="sk-seg active-o"></div><div class="sk-seg active-o"></div><div class="sk-seg active-o"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="sk-top"><span class="sk-name">Public Speaking</span><span class="sk-badge expert">EXPERT</span></div>
+              <div class="sk-meter"><div class="sk-seg active-o"></div><div class="sk-seg active-o"></div><div class="sk-seg active-o"></div><div class="sk-seg active-o"></div></div>
+            </div>
+            <div class="skill-item">
+              <div class="sk-top"><span class="sk-name">Analytical Problem Solving</span><span class="sk-badge advanced">ADVANCED</span></div>
+              <div class="sk-meter"><div class="sk-seg active-w"></div><div class="sk-seg active-w"></div><div class="sk-seg active-w"></div><div class="sk-seg"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SEC. 04: PENGALAMAN KERJA PROFESIONAL (TERPISAH) ================= -->
+<section id="work" style="background:var(--panel2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="idx">04</span>
+      <div>
+        <span class="kicker">SEC. 04 — REKAM JEJAK PROFESIONAL</span>
+        <h2>PENGALAMAN <em>KERJA.</em></h2>
+        <p class="lead">Pengembangan arsitektur web modern dan sistem informasi berbasis produksi untuk instansi pemerintahan serta institusi komunitas riil.</p>
+      </div>
+    </div>
+
+    <div class="exp-cards reveal">
+      <!-- Work 1: Disdik KBB -->
+      <div class="exp-card">
+        <div class="exp-header">
+          <div class="exp-title-box">
+            <img src="assets/images/logo-disdikkbb.png" alt="Dinas Pendidikan Kab. Bandung Barat" class="exp-logo">
+            <div>
+              <h3>Web Developer</h3>
+              <div class="inst">Dinas Pendidikan Kab. Bandung Barat</div>
+            </div>
+          </div>
+          <div class="exp-period">2025 · Kab. Bandung Barat</div>
+        </div>
+        <p class="exp-desc">Membangun subsistem PETADIK untuk otomatisasi verifikasi Kenaikan Gaji Berkala (KGB) ribuan tenaga pendidik se-KBB.</p>
+        <ul class="exp-bullets">
+          <li>Membangun modul KGB guru terintegrasi untuk ribuan tenaga pendidik di lingkungan Dinas Pendidikan Kabupaten Bandung Barat.</li>
+          <li>Mengotomatiskan alur verifikasi berkas berjenjang dan kalkulasi periode 2 tahunan, menggantikan proses manual tumpukan berkas fisik.</li>
+          <li>Mempercepat turnaround penerbitan SK KGB resmi siap unduh/cetak serta meniadakan antrean fisik operator sekolah ke kantor dinas.</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="exp-tag">Government System</span>
+          <span class="exp-tag">PHP Native MVC</span>
+          <span class="exp-tag">MySQL Architecture</span>
+          <span class="exp-tag">Workflow Automation</span>
+          <span class="exp-tag">PETADIK Portal</span>
+        </div>
+      </div>
+
+      <!-- Work 2: Bank Sampah Sukamaju Sejahtera -->
+      <div class="exp-card">
+        <div class="exp-header">
+          <div class="exp-title-box">
+            <img src="assets/images/logo-banksampah.png" alt="Bank Sampah Sukamaju Sejahtera" class="exp-logo">
+            <div>
+              <h3>Web Developer</h3>
+              <div class="inst">Bank Sampah Sukamaju Sejahtera</div>
+            </div>
+          </div>
+          <div class="exp-period">2026 · Kab. Bandung Barat</div>
+        </div>
+        <p class="exp-desc">Memimpin perancangan dan pengembangan aplikasi web resmi serta sistem manajemen digital Bank Sampah Sukamaju Sejahtera untuk menunjang skripsi dan operasional warga.</p>
+        <ul class="exp-bullets">
+          <li>Merancang dan membangun website lengkap untuk mengelola operasional bank sampah, informasi layanan, dan alur transaksi setoran warga.</li>
+          <li>Mengembangkan antarmuka pengguna yang intuitif dan mudah diakses oleh warga dari berbagai tingkat literasi digital.</li>
+          <li>Menyusun skema basis data relasional (3NF) dan tata letak responsif untuk meningkatkan konsistensi data dan efisiensi pelaporan.</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="exp-tag">Full-Stack Development</span>
+          <span class="exp-tag">Next.js 14 &amp; TypeScript</span>
+          <span class="exp-tag">Prisma ORM &amp; MySQL</span>
+          <span class="exp-tag">Midtrans Gateway</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SEC. 05: PENGALAMAN ORGANISASI & KEPEMIMPINAN (TERPISAH) ================= -->
+<section id="organization">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="idx">05</span>
+      <div>
+        <span class="kicker">SEC. 05 — KEPEMIMPINAN &amp; KONTRIBUSI SOSIAL</span>
+        <h2>PENGALAMAN <em>ORGANISASI.</em></h2>
+        <p class="lead">Perjalanan kepemimpinan eksekutif, koordinasi kader aktif, serta tata kelola program strategis lintas organisasi kampus hingga tingkat regional.</p>
+      </div>
+    </div>
+
+    <div class="org-grid reveal">
+      <!-- Org 1: SAPMA PP UNIKOM -->
+      <div class="exp-card">
+        <div class="exp-header">
+          <div class="exp-title-box">
+            <img src="assets/images/logo-sapma.png" alt="SAPMA PP UNIKOM" class="exp-logo">
+            <div>
+              <h3>Ketua</h3>
+              <div class="inst">SAPMA PP UNIKOM &amp; Kelulusan S.Kom.</div>
+            </div>
+          </div>
+          <div class="exp-period">2026 — SEKARANG · Kota Bandung</div>
+        </div>
+        <p class="exp-desc">Memimpin organisasi mahasiswa, menuntaskan skripsi sistem Bank Sampah Sukamaju Sejahtera, dan meraih sertifikasi profesi BNSP.</p>
+        <ul class="exp-bullets">
+          <li>Mengoordinasikan ratusan anggota aktif dan menyusun rencana strategis program kemahasiswaan berbasis dampak sosial.</li>
+          <li>Mengawasi alokasi anggaran, manajemen logistik kegiatan akbar, dan diplomasi antarlembaga universitas.</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="exp-tag">Executive Leadership</span>
+          <span class="exp-tag">Organizational Strategy</span>
+          <span class="exp-tag">SAPMA PP</span>
+        </div>
+      </div>
+
+      <!-- Org 2: ORADO Kota Bandung -->
+      <div class="exp-card">
+        <div class="exp-header">
+          <div class="exp-title-box">
+            <img src="assets/images/logo-orado.png" alt="ORADO Kota Bandung" class="exp-logo">
+            <div>
+              <h3>Kepala Divisi Diklat</h3>
+              <div class="inst">ORADO Kota Bandung</div>
+            </div>
+          </div>
+          <div class="exp-period">2026 — SEKARANG · Kota Bandung</div>
+        </div>
+        <p class="exp-desc">Menyusun standarisasi kurikulum pelatihan dan pembinaan atlet olahraga domino Kota Bandung.</p>
+        <ul class="exp-bullets">
+          <li>Menyusun metrik evaluasi performa atlet dan merancang modul latihan berbasis analisis statistik permainan.</li>
+          <li>Mengelola logistik kontingen dan menyupervisi turnamen seleksi daerah.</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="exp-tag">Performance Analytics</span>
+          <span class="exp-tag">Athlete Development</span>
+          <span class="exp-tag">ORADO</span>
+        </div>
+      </div>
+
+      <!-- Org 3: KIPAN Bandung Barat -->
+      <div class="exp-card">
+        <div class="exp-header">
+          <div class="exp-title-box">
+            <img src="assets/images/logo-kipan.png" alt="KIPAN Bandung Barat" class="exp-logo">
+            <div>
+              <h3>Wakil Ketua</h3>
+              <div class="inst">KIPAN Bandung Barat</div>
+            </div>
+          </div>
+          <div class="exp-period">2024 — SEKARANG · Kab. Bandung Barat</div>
+        </div>
+        <p class="exp-desc">Mengordinasikan program kaderisasi pemuda anti narkoba dan menginisiasi sistem database keanggotaan terintegrasi.</p>
+        <ul class="exp-bullets">
+          <li>Mengoordinasikan ratusan kader pemuda dan menyelenggarakan workshop interaktif pola hidup sehat di berbagai kecamatan.</li>
+          <li>Membangun kemitraan strategis dengan dinas terkait dan koalisi kepemudaan daerah.</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="exp-tag">Cadre Empowerment</span>
+          <span class="exp-tag">Cross-Agency Relations</span>
+          <span class="exp-tag">KIPAN</span>
+        </div>
+      </div>
+
+      <!-- Org 4: HIMA SI UNIKOM -->
+      <div class="exp-card">
+        <div class="exp-header">
+          <div class="exp-title-box">
+            <img src="assets/images/logo-himasi.png" alt="HIMA SI UNIKOM" class="exp-logo">
+            <div>
+              <h3>Wakil Ketua</h3>
+              <div class="inst">HIMA SI UNIKOM</div>
+            </div>
+          </div>
+          <div class="exp-period">2023 — 2024 · Kota Bandung</div>
+        </div>
+        <p class="exp-desc">Memimpin departemen internal, menyukseskan program kerja akademik himpunan, dan meraih sertifikasi jaringan Cisco.</p>
+        <ul class="exp-bullets">
+          <li>Menyelenggarakan seminar teknologi berskala nasional, workshop pemrograman, dan pembinaan mahasiswa baru.</li>
+          <li>Melakukan evaluasi triwulanan yang meningkatkan keaktifan anggota dan sinergi antar-divisi.</li>
+        </ul>
+        <div class="exp-tags">
+          <span class="exp-tag">Student Operations</span>
+          <span class="exp-tag">Departmental Leadership</span>
+          <span class="exp-tag">UNIKOM</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SEC. 06: ACADEMIC BACKGROUND & EDUCATION ================= -->
+<section id="education" style="background:var(--panel2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="idx">06</span>
+      <div>
+        <span class="kicker">SEC. 06 — LATAR BELAKANG AKADEMIK &amp; PENDIDIKAN</span>
+        <h2>PENDIDIKAN TINGGI &amp; <em>PENGHARGAAN.</em></h2>
+        <p class="lead">Pendidikan formal berorientasi sains komputer dan teknologi informasi dengan rekam jejak akademik predikat kelulusan dengan pujian tinggi (High Distinction).</p>
+      </div>
+    </div>
+
+    <div class="edu-grid reveal">
+      <!-- Main UNIKOM Degree Card -->
+      <div class="edu-main-card">
+        <div>
+          <div class="edu-head">
+            <img src="assets/images/logo-unikom.png" alt="Logo UNIKOM" class="edu-logo">
+            <div class="edu-title-box">
+              <h3>Universitas Komputer Indonesia</h3>
+              <div class="inst">Kota Bandung, Jawa Barat · Agustus 2022 – Oktober 2026</div>
+            </div>
+          </div>
+
+          <div class="edu-meta-badges">
+            <span class="edu-badge-orange">Sarjana Sistem Informasi (S.Kom.)</span>
+            <span class="edu-badge-green"><i data-lucide="check-circle" style="width:14px;height:14px"></i> IPK Kumulatif: 3.68 / 4.00 (High Distinction)</span>
+          </div>
+
+          <p class="edu-desc">
+            Aktif dalam proyek riset perangkat lunak, inisiatif rekayasa web, dan kurikulum tingkat lanjut meliputi full-stack web engineering, arsitektur basis data relasional, dan data analytics. Menyelesaikan skripsi implementasi sistem bank sampah digital terintegrasi berbasis Next.js dan Prisma MySQL.
+          </p>
+        </div>
+
+        <div>
+          <div class="edu-specs-title">// Spesialisasi Akademik Utama:</div>
+          <div class="edu-specs-tags">
+            <span class="edu-spec-pill">Full-Stack Web Development</span>
+            <span class="edu-spec-pill">Data Analytics &amp; Mining</span>
+            <span class="edu-spec-pill">Database Architecture &amp; SQL (3NF)</span>
+            <span class="edu-spec-pill">System Analysis &amp; Design (SAD)</span>
+            <span class="edu-spec-pill">Software Engineering</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Side Cards: Language Proficiency & Honors -->
+      <div class="edu-side-cards">
+        <div class="edu-side-card">
+          <h4>// Kemahiran Bahasa (Language Proficiency)</h4>
+          <div class="lang-row">
+            <div>
+              <span class="l-name">Bahasa Indonesia</span>
+              <span class="l-sub">Bahasa Asli / Penutur Utama</span>
+            </div>
+            <span class="lang-badge native">Native Speaker</span>
+          </div>
+          <div class="lang-row">
+            <div>
+              <span class="l-name">Bahasa Inggris</span>
+              <span class="l-sub">Teknis &amp; Komunikasi Kerja</span>
+            </div>
+            <span class="lang-badge working">Intermediate</span>
+          </div>
+        </div>
+
+        <div class="edu-side-card honor-card">
+          <h4>// Penghargaan Akademik</h4>
+          <h5>High Distinction Graduate</h5>
+          <p>Mempertahankan prestasi akademik konsisten pada persentil teratas sepanjang 8 semester di Program Studi Sistem Informasi UNIKOM.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SEC. 07: SERTIFIKASI RESMI (KREDENSIAL) ================= -->
+<section id="certs">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="idx">07</span>
+      <div>
+        <span class="kicker">SEC. 07 — KREDENSIAL PROFESI RESMI</span>
+        <h2>SERTIFIKASI <em>TERVERIFIKASI.</em></h2>
+        <p class="lead">Pengakuan kompetensi formal berstandar nasional (BNSP SKKNI) dan global (IBM SkillsBuild &amp; Cisco Networking Academy). Klik kartu untuk membuka dokumen verifikasi lengkap.</p>
+      </div>
+    </div>
+
+    <div class="certs-grid reveal">
+      <!-- Cert 1: BNSP -->
+      <div class="cert-card" onclick="openCertModal('bnsp')">
+        <div class="cert-logo-box"><img src="assets/images/logo-bnsp.png" alt="BNSP"></div>
+        <div class="cert-info">
+          <span class="code">C-01 · BNSP SKKNI (KOMPETEN)</span>
+          <h4>Analis Data Madya (Associate Data Analyst)</h4>
+          <p>Badan Nasional Sertifikasi Profesi via LSP Informatika · Berlaku s/d 2029</p>
+        </div>
+        <div class="cert-foot">
+          <span><i data-lucide="check-circle" style="width:13px;height:13px;display:inline-block;vertical-align:middle"></i> Terverifikasi</span>
+          <span class="view-lbl">Buka Dokumen <i data-lucide="arrow-right" style="width:12px;height:12px"></i></span>
+        </div>
+      </div>
+
+      <!-- Cert 2: IBM -->
+      <div class="cert-card" onclick="openCertModal('ibm')">
+        <div class="cert-logo-box"><img src="assets/images/logo-ibm-skillsbuild.png" alt="IBM SkillsBuild"></div>
+        <div class="cert-info">
+          <span class="code">C-02 · IBM SKILLSBUILD × HACKTIV8</span>
+          <h4>Data Classification &amp; Summarization</h4>
+          <p>Machine Learning, Feature Engineering &amp; Python Exploration · Juli 2025</p>
+        </div>
+        <div class="cert-foot">
+          <span><i data-lucide="check-circle" style="width:13px;height:13px;display:inline-block;vertical-align:middle"></i> Terverifikasi</span>
+          <span class="view-lbl">Buka Dokumen <i data-lucide="arrow-right" style="width:12px;height:12px"></i></span>
+        </div>
+      </div>
+
+      <!-- Cert 3: Cisco SRWE -->
+      <div class="cert-card" onclick="openCertModal('cisco_srwe')">
+        <div class="cert-logo-box"><img src="assets/images/logo-cisco-ccna.png" alt="Cisco"></div>
+        <div class="cert-info">
+          <span class="code">C-03 · CISCO NETWORKING ACADEMY</span>
+          <h4>CCNAv7: Switching, Routing, and Wireless Essentials</h4>
+          <p>VLANs, Inter-VLAN Routing, STP, EtherChannel &amp; WLC · Agustus 2024</p>
+        </div>
+        <div class="cert-foot">
+          <span><i data-lucide="check-circle" style="width:13px;height:13px;display:inline-block;vertical-align:middle"></i> Terverifikasi</span>
+          <span class="view-lbl">Buka Dokumen <i data-lucide="arrow-right" style="width:12px;height:12px"></i></span>
+        </div>
+      </div>
+
+      <!-- Cert 4: Cisco ITN -->
+      <div class="cert-card" onclick="openCertModal('cisco_itn')">
+        <div class="cert-logo-box"><img src="assets/images/logo-cisco-ccna.png" alt="Cisco"></div>
+        <div class="cert-info">
+          <span class="code">C-04 · CISCO NETWORKING ACADEMY</span>
+          <h4>CCNAv7: Introduction to Networks</h4>
+          <p>IPv4/IPv6 Subnetting, OSI/TCP-IP &amp; Security Basics · Februari 2024</p>
+        </div>
+        <div class="cert-foot">
+          <span><i data-lucide="check-circle" style="width:13px;height:13px;display:inline-block;vertical-align:middle"></i> Terverifikasi</span>
+          <span class="view-lbl">Buka Dokumen <i data-lucide="arrow-right" style="width:12px;height:12px"></i></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- pita pernyataan: filosofi engineering -->
+<div class="statement">
+  <p class="reveal">"KODE BERKUALITAS MENGUBAH <em>KOMPLEKSITAS MENJADI EFISIENSI.</em>"</p>
+  <span class="mono reveal" style="--d:.12s">— REKAYASA SISTEM INFORMASI · UNIKOM BANDUNG</span>
+</div>
+
+<!-- ================= SEC. 08: KONTAK & REKRUTMEN ================= -->
+<section id="contact">
+  <div class="bg-word" aria-hidden="true">KONTRIBUSI</div>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="idx">08</span>
+      <div>
+        <span class="kicker">SEC. 08 — HUBUNGI SAYA / REKRUTMEN</span>
+        <h2>MARI MEMBANGUN <em>SOLUSI BERSAMA.</em></h2>
+        <p class="lead">Terbuka untuk posisi Full-Stack Developer, Data Analyst, maupun kontrak proyek strategis. Diskusikan tantangan sistem Anda — respon maksimal dalam 1×24 jam.</p>
+      </div>
+    </div>
+
+    <!-- Quick Contact Cards from V1 -->
+    <div class="contact-quick-cards reveal">
+      <a href="mailto:mirwankholid06@gmail.com" class="c-card" title="Kirim email langsung">
+        <i data-lucide="mail"></i>
+        <span class="c-lbl">EMAIL RESMI</span>
+        <span class="c-val">mirwankholid06@gmail.com</span>
+      </a>
+      <a href="https://wa.me/6281211547844?text=Halo%20Mirwan,%20saya%20tertarik%20dengan%20portofolio%20Anda" target="_blank" rel="noopener" class="c-card" title="Hubungi via WhatsApp">
+        <i data-lucide="phone"></i>
+        <span class="c-lbl">WHATSAPP / HP</span>
+        <span class="c-val">+62 812-1154-7844</span>
+      </a>
+      <a href="https://linkedin.com/in/mirwan-kholid-902038362/" target="_blank" rel="noopener" class="c-card" title="Profil LinkedIn">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+        <span class="c-lbl">LINKEDIN</span>
+        <span class="c-val">mirwan-kholid</span>
+      </a>
+      <a href="https://github.com/mirwan10522114-jpg" target="_blank" rel="noopener" class="c-card" title="Repositori GitHub">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+        <span class="c-lbl">GITHUB</span>
+        <span class="c-val">mirwan10522114-jpg</span>
+      </a>
+    </div>
+
+    <div class="contact-layout">
+      <div class="contact-left reveal">
+        <div class="list-title"><span>NILAI TAMBAH YANG SAYA BAWA UNTUK TIM ANDA</span><span>04 PILAR</span></div>
+        <ul class="inc-list">
+          <li><i data-lucide="check"></i><span>Arsitektur Web Scalable (Laravel, React, Next.js, REST API)</span><b>FULL-STACK</b></li>
+          <li><i data-lucide="check"></i><span>Analitik Data &amp; Business Intelligence (Python, Power BI, SQL 3NF)</span><b>SKKNI BNSP</b></li>
+          <li><i data-lucide="check"></i><span>Integrasi Sensor Geofence, Kamera &amp; Payment Gateway</span><b>GEOFENCE</b></li>
+          <li><i data-lucide="check"></i><span>Kepemimpinan Eksekutif &amp; Kolaborasi Lintas Fungsi</span><b>LEADERSHIP</b></li>
+        </ul>
+        <div class="contact-rows">
+          <div class="c-row"><i data-lucide="map-pin"></i><div><span class="lbl">LOKASI KERJA</span><span class="val">Bandung Barat &amp; Kota Bandung, Jawa Barat (Tersedia Onsite, Hybrid, atau Remote).</span></div></div>
+          <div class="c-row"><i data-lucide="phone"></i><div><span class="lbl">WHATSAPP LANGSUNG</span><a href="https://wa.me/6281211547844" target="_blank" rel="noopener" class="val">+62 812-1154-7844</a></div></div>
+          <div class="c-row"><i data-lucide="mail"></i><div><span class="lbl">EMAIL RESMI</span><a href="mailto:mirwankholid06@gmail.com" class="val">mirwankholid06@gmail.com</a></div></div>
+          <div class="c-row"><i data-lucide="copy"></i><div><span class="lbl">SALIN KONTAK INSTAN</span><button type="button" onclick="copyContactPhone()" class="btn btn-ghost btn-sm" style="margin-top:4px">Salin Nomor Telepon <i data-lucide="clipboard"></i></button></div></div>
+        </div>
+      </div>
+      <div class="contact-right reveal" style="--d:.12s">
+        <div class="form-card" id="formCard">
+          <div class="form-hz" aria-hidden="true"></div>
+          <div class="form-head"><span>FORM-01 — DISKUSI PROYEK / TAWARAN KERJA</span><b>RESPONS CEPAT</b></div>
+          <form class="form-body" id="trialForm" novalidate>
+            <div class="field">
+              <label for="fName">Nama Lengkap / Instansi</label>
+              <input id="fName" type="text" placeholder="cth. Budi Pratama (PT. Solusi Digital)" autocomplete="name">
+              <span class="err">Nama minimal 2 karakter.</span>
+            </div>
+            <div class="field">
+              <label for="fWa">Kontak (WhatsApp / Email Aktif)</label>
+              <input id="fWa" type="text" placeholder="cth. 0812 3456 7890 atau email@perusahaan.com">
+              <span class="err">Masukkan nomor WhatsApp atau email yang valid.</span>
+            </div>
+            <div class="field-row">
+              <div class="field">
+                <label for="fGoal">Jenis Kebutuhan</label>
+                <div class="select">
+                  <select id="fGoal">
+                    <option value="">— Pilih kebutuhan —</option>
+                    <option>Rekrutmen Full-Time (Full-Stack Dev)</option>
+                    <option>Rekrutmen Full-Time (Data Analyst)</option>
+                    <option>Proyek / Kontrak Sistem Web</option>
+                    <option>Konsultasi Data &amp; Dashboard BI</option>
+                    <option>Diskusi Kolaborasi Lainnya</option>
+                  </select>
+                  <i data-lucide="chevron-down" class="sel-arrow"></i>
+                </div>
+                <span class="err">Pilih jenis kebutuhan Anda.</span>
+              </div>
+              <div class="field">
+                <label for="fTime">Skema Kolaborasi</label>
+                <div class="select">
+                  <select id="fTime">
+                    <option value="">— Pilih skema —</option>
+                    <option>Full-Time (Remote / Hybrid)</option>
+                    <option>Full-Time (Onsite Bandung/Jakarta)</option>
+                    <option>Freelance / Project-Based</option>
+                    <option>Diskusi santai dulu via Google Meet / WA</option>
+                  </select>
+                  <i data-lucide="chevron-down" class="sel-arrow"></i>
+                </div>
+                <span class="err">Pilih skema preferensi Anda.</span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="fMsg">Catatan / Deskripsi Singkat Kebutuhan</label>
+              <textarea id="fMsg" placeholder="Sampaikan ruang lingkup proyek, teknologi yang dibutuhkan, atau tawaran posisi..."></textarea>
+            </div>
+            <div style="display:flex;gap:10px;flex-wrap:wrap">
+              <button type="submit" class="btn btn-solid form-submit magnetic" style="flex:1">Kirim via WhatsApp <i data-lucide="arrow-right"></i></button>
+              <button type="button" onclick="sendViaMailto()" class="btn btn-ghost" style="padding:13px 20px" title="Kirim via aplikasi email">Kirim Email <i data-lucide="mail"></i></button>
+            </div>
+            <p class="form-note">DATA ANDA AMAN · DIGUNAKAN HANYA UNTUK KEPERLUAN DISKUSI PROFESIONAL</p>
+          </form>
+          <div class="form-success">
+            <i data-lucide="badge-check"></i>
+            <h3>PESAN TERCATAT.</h3>
+            <div class="sum">
+              <div><span>NAMA</span><b id="sumName"></b></div>
+              <div><span>KEBUTUHAN</span><b id="sumGoal"></b></div>
+              <div><span>SKEMA</span><b id="sumTime"></b></div>
+            </div>
+            <p>Terima kasih atas minat Anda. Anda juga dapat melanjutkan chat langsung via WhatsApp untuk diskusi instan sekarang.</p>
+            <div class="success-btns">
+              <a href="#" id="waDirectBtn" target="_blank" rel="noopener" class="btn btn-solid btn-sm">Lanjut ke WhatsApp <i data-lucide="send"></i></a>
+              <button type="button" class="btn btn-ghost btn-sm" id="resetForm">Kirim Pesan Lainnya</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- ================= MODAL DETAIL ARSITEKTUR PROYEK (V1 REPLICA IN V2 STYLE) ================= -->
+<div class="modal-overlay" id="modalProject" onclick="closeModalOnOutside(event, 'modalProject')">
+  <div class="modal-card">
+    <div class="modal-head">
+      <span id="pModalTag">// SYSTEM ARCHITECTURE DEEP-DIVE</span>
+      <button class="modal-close-btn" onclick="closeProjectModal()" aria-label="Tutup modal"><i data-lucide="x"></i></button>
+    </div>
+    <div class="modal-preview">
+      <img id="pModalImg" src="" alt="Pratinjau Proyek">
+    </div>
+    <div class="modal-content">
+      <h3 id="pModalTitle">Judul Proyek</h3>
+      <div class="modal-meta-line" id="pModalMeta">Kategori &amp; Klien</div>
+
+      <div class="modal-section">
+        <h4>// Problem &amp; Context</h4>
+        <p id="pModalProblem">Deskripsi masalah...</p>
+      </div>
+
+      <div class="modal-section">
+        <h4>// Technical Solution &amp; Implementation</h4>
+        <p id="pModalSolution">Solusi teknik...</p>
+      </div>
+
+      <div class="modal-section">
+        <h4>// Key Features &amp; Impact</h4>
+        <ul class="modal-features" id="pModalFeatures"></ul>
+      </div>
+
+      <div class="modal-section">
+        <h4>// Technologies &amp; Tools</h4>
+        <div class="modal-tech-tags" id="pModalTech"></div>
+      </div>
+
+      <div class="modal-foot-actions" id="pModalActions"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= MODAL KREDENSIAL SERTIFIKASI (V1 REPLICA IN V2 STYLE) ================= -->
+<div class="modal-overlay" id="modalCert" onclick="closeModalOnOutside(event, 'modalCert')">
+  <div class="modal-card">
+    <div class="modal-head">
+      <span id="cModalTag">// VERIFIED INDUSTRY CREDENTIAL</span>
+      <button class="modal-close-btn" onclick="closeCertModal()" aria-label="Tutup modal"><i data-lucide="x"></i></button>
+    </div>
+    <div class="modal-preview">
+      <a id="cModalImgLink" href="#" target="_blank" rel="noopener" title="Klik untuk membuka scan sertifikat resolusi penuh di tab baru">
+        <img id="cModalImg" src="" alt="Scan Sertifikat Resmi">
+      </a>
+    </div>
+    <div class="modal-content">
+      <h3 id="cModalTitle">Nama Sertifikasi</h3>
+      <div class="modal-meta-line" id="cModalMeta">Penerbit &amp; Status</div>
+
+      <div class="modal-section">
+        <h4>// Certification Overview</h4>
+        <p id="cModalOverview">Gambaran umum...</p>
+      </div>
+
+      <div class="modal-section">
+        <h4>// Tested Competency Units &amp; Scope</h4>
+        <ul class="modal-features" id="cModalCompetencies"></ul>
+      </div>
+
+      <div class="modal-section">
+        <h4>// Skills &amp; Domains Validated</h4>
+        <div class="modal-tech-tags" id="cModalSkills"></div>
+      </div>
+
+      <div class="modal-foot-actions">
+        <span class="mono" id="cModalCredId" style="color:var(--orange)">RECORD ID</span>
+        <button type="button" class="btn btn-ghost btn-sm" onclick="closeCertModal()" style="margin-left:auto">Tutup Kredensial</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="hz" aria-hidden="true"></div>
+  <div class="wrap foot-grid">
+    <div class="foot-brand">
+      <span class="logo-mark">MK</span>
+      <p>Mirwan Kholid, S.Kom. — Full-Stack Web Developer &amp; BNSP Certified Data Analyst lulusan Universitas Komputer Indonesia (UNIKOM). Disiplin kode bersih, arsitektur scalable, dan keputusan berbasis data.</p>
+      <div class="socials">
+        <a href="https://github.com/mirwan10522114-jpg" target="_blank" rel="noopener" aria-label="GitHub"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg></a>
+        <a href="https://linkedin.com/in/mirwan-kholid-902038362/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg></a>
+        <a href="https://wa.me/6281211547844" target="_blank" rel="noopener" aria-label="WhatsApp"><i data-lucide="message-circle"></i></a>
+        <a href="mailto:mirwankholid06@gmail.com" aria-label="Email"><i data-lucide="mail"></i></a>
+      </div>
+    </div>
+    <nav class="foot-nav" aria-label="Navigasi footer">
+      <a href="#about">/ PROFIL</a>
+      <a href="#projects">/ PROYEK</a>
+      <a href="#skills">/ KEAHLIAN</a>
+      <a href="#work">/ PENGALAMAN KERJA</a>
+      <a href="#organization">/ ORGANISASI</a>
+      <a href="#education">/ PENDIDIKAN</a>
+      <a href="#certs">/ KREDENSIAL</a>
+      <a href="#contact">/ KONTAK</a>
+    </nav>
+    <div class="foot-meta">
+      <span>KOTA BANDUNG &amp; KAB. BANDUNG BARAT</span>
+      <span>PROGRAM STUDI SISTEM INFORMASI — <b>UNIKOM</b></span>
+      <button class="btn btn-ghost btn-sm" id="toTop">KE ATAS <i data-lucide="arrow-up"></i></button>
+    </div>
+  </div>
+  <div class="foot-name" aria-hidden="true">MIRWAN KHOLID</div>
+  <div class="foot-credit wrap">
+    <span>© 2026 MIRWAN KHOLID, S.KOM. — ALL RIGHTS RESERVED</span>
+    <span>DIBANGUN DENGAN DISIPLIN ARSITEKTUR KODE BERSIH &amp; DATA TERAKREDITASI</span>
+  </div>
+</footer>
+
+<div id="toasts" aria-live="polite"></div>
+
+<!-- Kursor kustom ditempatkan sebelum script agar DOM siap saat script berjalan -->
+<div id="cursor-dot" aria-hidden="true"><span></span></div>
+<div id="cursor-ring" aria-hidden="true"><span></span></div>
+
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script>
+/* ================= UTIL ================= */
+const $  = (s,c=document)=>c.querySelector(s);
+const $$ = (s,c=document)=>[...c.querySelectorAll(s)];
+const SVG_GITHUB = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>`;
+const SVG_LINKEDIN = `<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>`;
+
+const refreshIcons = ()=>{
+  if(window.lucide) lucide.createIcons();
+  $$('[data-lucide="github"]').forEach(el => { el.outerHTML = SVG_GITHUB; });
+  $$('[data-lucide="linkedin"]').forEach(el => { el.outerHTML = SVG_LINKEDIN; });
+};
+
+
+
+/* ================= SALIN NOMOR HP KE CLIPBOARD ================= */
+function copyContactPhone(){
+  const phone = '+6281211547844';
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(phone).then(()=>{
+      showToast('NOMOR TERSALIN', '✓ Nomor telepon (+6281211547844) berhasil disalin ke clipboard!');
+    }).catch(()=>{
+      prompt('Salin nomor telepon:', phone);
+    });
+  } else {
+    prompt('Salin nomor telepon:', phone);
+  }
+}
+
+/* ================= DATA MARQUEE ================= */
+const MQ = [
+  'FULL-STACK WEB DEV',
+  'LARAVEL 13 & REACT & NEXT.JS',
+  'BNSP ASSOCIATE DATA ANALYST (SKKNI)',
+  'CISCO CCNA (2X VERIFIED)',
+  'POWER BI & ADVANCED SQL (3NF)',
+  'UNIKOM BANDUNG — IPK 3.68',
+  'REST API & DATABASE ARCHITECTURE',
+  'GEOFENCING & SYSTEM AUTOMATION',
+  'CLEAN CODE & ENGINEERING DISCIPLINE',
+  'AVAILABLE FOR HIRE'
+];
+
+/* ================= DATA 8 PROYEK DENGAN DETAIL V1 ================= */
+const PROJECTS = [
+  {
+    id:'wastebank', num:'01', name:'BANK SAMPAH SUKAMAJU', titleTag:'SKRIPSI & DIGITALISASI', tag:'Next.js · Prisma · Midtrans · MySQL', code:'PRJ-01 / SKRIPSI',
+    meta:'Universitas Komputer Indonesia · Juli 2026 – September 2026',
+    desc:'Platform end-to-end digitalisasi bank sampah komunitas untuk pencatatan setoran sampah otomatis, saldo tabungan nasabah, simpan pinjam koperasi, serta integrasi payment gateway Midtrans.',
+    problem:'Bank Sampah Sukamaju Sejahtera membutuhkan satu sistem terpadu untuk mengelola setoran sampah, saldo nasabah, simpan pinjam koperasi, penjualan produk daur ulang, serta pelaporan operasional tanpa catatan buku tulis manual.',
+    solution:'Membangun aplikasi web dengan dashboard berbasis peran (admin, nasabah bank sampah, anggota koperasi). Sistem mencatat timbangan setoran sampah, mengalkulasi nilainya secara otomatis via harga master admin, serta memperbarui saldo tabungan dan poin nasabah secara real-time.',
+    features:[
+      'Pencatatan setoran & penarikan saldo sampah dengan kwitansi digital dan dashboard nasabah.',
+      'Manajemen kategori dan tarif harga sampah dinamis dengan kalkulasi poin otomatis.',
+      'Modul simpan pinjam koperasi, cicilan, dan pembagian dividen anggota.',
+      'Katalog produk daur ulang dengan transaksi Point-of-Sale dan toko online Midtrans.',
+      'Laporan keuangan, neraca kas, dan rekapitulasi timbangan siap cetak/ekspor.'
+    ],
+    tech:['Next.js 14','TypeScript','Prisma ORM','MySQL','Tailwind CSS','Midtrans API'],
+    specs:[
+      ['KATEGORI','Enterprise Web Platform / Skripsi'],
+      ['TECH STACK','Next.js 14, TypeScript, Prisma ORM, Tailwind CSS'],
+      ['DATABASE','MySQL (Relational Schema 3NF)'],
+      ['INTEGRASI','Midtrans Payment Gateway, Dynamic Charts'],
+      ['STATUS','Production Ready / Teruji di Lapangan']
+    ],
+    phases:[
+      ['FASE 01','WEIGHING & LEDGER','Pencatatan timbangan sampah & kalkulasi saldo otomatis',35],
+      ['FASE 02','COOP & MIDTRANS','Modul simpan pinjam & pembayaran digital Midtrans',70],
+      ['FASE 03','ANALYTICS & EXPORT','Export laporan keuangan & dashboard rekapitulasi',100]
+    ],
+    img:'assets/images/project-wastebank.png',
+    imgCap:'MODUL KASIR & TIMBANGAN SETORAN NASABAH',
+    repoUrl:'https://github.com/mirwan10522114-jpg/BANK-SAMPAH-SUKAMAJU-SEJAHTERA',
+    liveUrl:null
+  },
+  {
+    id:'kgb', num:'02', name:'PETADIK — KGB GURU', titleTag:'OTOMATISASI PEMERINTAHAN', tag:'PHP · MySQL · Tailwind · Disdik KBB', code:'PRJ-02 / DISDIK KBB',
+    meta:'Dinas Pendidikan Kabupaten Bandung Barat · Agustus 2025 – Oktober 2025',
+    desc:'Subsistem otomatisasi pengajuan, verifikasi berjenjang, dan penerbitan SK Kenaikan Gaji Berkala (KGB) bagi ribuan tenaga pendidik di bawah naungan Dinas Pendidikan Kabupaten Bandung Barat.',
+    problem:'Pengelolaan Kenaikan Gaji Berkala (KGB) bagi ribuan pendidik di Disdik KBB sebelumnya menggunakan berkas fisik tebal yang rentan kesalahan hitung masa kerja 2 tahunan, memicu antrean operator sekolah ke kantor dinas, serta memperlambat rilis SK.',
+    solution:'Merancang dan membangun modul sistem KGB guru terintegrasi dalam portal resmi PETADIK (Pelayanan Pendidikan Disdik KBB). Sistem mendigitisasi riwayat kepegawaian, memantau siklus 2 tahunan otomatis, serta mempercepat pipeline verifikasi berkas secara online.',
+    features:[
+      'Kalkulator siklus masa kerja otomatis yang menandai guru eligible berbulan-bulan sebelumnya.',
+      'Unggah berkas digital & pipeline verifikasi kepegawaian dari operator sekolah langsung via PETADIK.',
+      'Pelacakan status pengajuan real-time (Cek Status) tanpa harus datang ke kantor dinas.',
+      'Otomatisasi pembuatan draf & disposisi Surat Keputusan (SK) KGB resmi siap cetak.',
+      'Dashboard evaluasi berjenjang untuk tim verifikator Dinas Pendidikan KBB.',
+      'Mengurangi waktu tunggu verifikasi dari berminggu-minggu menjadi hitungan menit.'
+    ],
+    tech:['PHP Native MVC','MySQL Database','JavaScript','Tailwind CSS','Workflow Engine','Government Systems'],
+    specs:[
+      ['KLIEN','Dinas Pendidikan Kabupaten Bandung Barat'],
+      ['TECH STACK','PHP Native (Modern MVC), JavaScript, Tailwind CSS'],
+      ['DATABASE','MySQL Database Server'],
+      ['FITUR UTAMA','Auto-eligibility 2 tahun, Verifikasi Multi-Tier, Cetak SK'],
+      ['PORTAL','Sistem Terintegrasi PETADIK Disdik KBB']
+    ],
+    phases:[
+      ['FASE 01','INGESTION','Pengajuan berkas digital dari Operator Sekolah',30],
+      ['FASE 02','VERIFIKASI','Validasi berjenjang oleh tim Verifikator Disdik',65],
+      ['FASE 03','DECISION & SK','Otomatisasi rilis SK KGB resmi siap unduh/cetak',100]
+    ],
+    img:'assets/images/project-petadik.png',
+    imgCap:'PORTAL VERIFIKASI BERJENJANG KGB DISDIK KBB',
+    repoUrl:null,
+    liveUrl:'https://disdikkbb.org/petadik'
+  },
+  {
+    id:'kipan', num:'03', name:'SIM KIPAN INDONESIA', titleTag:'DATABASE KADER NASIONAL', tag:'Next.js · TypeScript · Prisma · RBAC', code:'PRJ-03 / KADER NASIONAL',
+    meta:'Kader Inti Pemuda Anti Narkoba · Agustus 2026 – September 2026',
+    desc:'Sistem Informasi Manajemen Kader Inti Pemuda Anti Narkoba nasional dengan registrasi online, verifikasi bertingkat DPD/DPC, dashboard statistik kader, dan generator kartu anggota digital (e-KTA).',
+    problem:'KIPAN membutuhkan basis data terpusat untuk mengelola registrasi keanggotaan, verifikasi identitas, dan arsip kepengurusan berjenjang dari tingkat kabupaten/kota, provinsi, hingga pengurus pusat nasional.',
+    solution:'Mengembangkan SIM KIPAN berbasis web dengan formulir registrasi online mandiri, kontrol akses multi-tier wilayah, validasi kelayakan kader, serta penerbitan Nomor Induk Anggota (NIA) dan e-KTA otomatis.',
+    features:[
+      'Pendaftaran kader terpusat dengan penerbitan Nomor Induk Anggota (NIA) unik.',
+      'Alur peninjauan pendaftaran oleh admin kab/kota dengan generate otomatis e-KTA digital.',
+      'Role-Based Access Control bertingkat untuk admin kabupaten, provinsi, dan pimpinan pusat.',
+      'Pencatatan riwayat kepengurusan, SK pengangkatan, dan arsip legalitas organisasi.',
+      'Dashboard analitik demografi kader dan sebaran se-Indonesia.'
+    ],
+    tech:['Next.js','TypeScript','React','Prisma ORM','MySQL','Tailwind CSS','RBAC Security'],
+    specs:[
+      ['KLIEN','Kader Inti Pemuda Anti Narkoba (KIPAN)'],
+      ['TECH STACK','Next.js, TypeScript, Tailwind CSS, Prisma ORM'],
+      ['SECURITY','Role-Based Access Control (Admin Pusat, DPD, DPC, Kader)'],
+      ['DATABASE','MySQL with Indexed Relations'],
+      ['FITUR','e-KTA Digital Auto-Generate, Pelaporan Wilayah']
+    ],
+    phases:[
+      ['FASE 01','REGISTRASI','Pendaftaran mandiri kader dengan validasi NIK',30],
+      ['FASE 02','HIERARKI RBAC','Approval workflow berjenjang provinsi/kabupaten',70],
+      ['FASE 03','e-KTA & STATS','Pembuatan kartu e-KTA digital & analitik demografi',100]
+    ],
+    img:'assets/images/project-kipan.png',
+    imgCap:'DASHBOARD MANAJEMEN ANGGOTA & KARTU e-KTA DIGITAL',
+    repoUrl:'https://github.com/mirwan10522114-jpg/KIPAN_INDONESIA',
+    liveUrl:null
+  },
+  {
+    id:'posymart', num:'04', name:'POSYMART COFFEE SHOP', titleTag:'KASIR POS & QR ORDER', tag:'Laravel 13 · Alpine.js · Tailwind · Chart.js', code:'PRJ-04 / RETAIL & F&B',
+    meta:'F&B POS Application · Agustus 2026 – September 2026',
+    desc:'Aplikasi Point of Sale (POS) modern untuk ritel & kedai kopi dengan alur pesanan mandiri meja via QR code, terminal kasir terintegrasi, manajemen stok real-time, dan grafik omzet harian.',
+    problem:'Operasional kedai kopi memerlukan integrasi antara pemesanan meja pelanggan, pesanan barista di dapur, penerimaan kasir, pemotongan stok bahan baku, dan rekapitulasi laba rugi.',
+    solution:'Membangun platform POS lengkap dengan backend Laravel 13 dan dashboard kasir interaktif. Pelanggan dapat memesan langsung dari meja via scan QR code, sementara staf memproses order dan pembayaran.',
+    features:[
+      'Terminal kasir cepat dengan cart management, multi-payment, dan diskon dinamis.',
+      'Self-ordering berbasis QR code meja dengan pelacakan status pesanan real-time.',
+      'Manajemen stok bahan baku dengan notifikasi otomatis saat stok menipis.',
+      'Grafik omzet dan laporan analitik penjualan harian/mingguan dengan Chart.js.',
+      'Manajemen refund, void tiket, dan hak akses staf berjenjang.'
+    ],
+    tech:['Laravel 13','PHP 8.3','Alpine.js','Tailwind CSS','Chart.js','MySQL','REST API'],
+    specs:[
+      ['FRAMEWORK','Laravel 13, PHP 8.3+, Alpine.js, Tailwind CSS'],
+      ['DATABASE','MySQL (Eloquent ORM)'],
+      ['FITUR F&B','Pemesanan mandiri QR Meja, Split/Multi-payment, Void/Refund'],
+      ['ANALYTICS','Sales Revenue Dashboard dengan Chart.js'],
+      ['INVENTORY','Pengurangan stok bahan otomatis dengan low-stock alert']
+    ],
+    phases:[
+      ['FASE 01','CASHIER TERMINAL','Antarmuka kasir cepat dengan shortcut keyboard',30],
+      ['FASE 02','QR ORDER ROUTING','Routing tiket pesanan dapur/barista real-time',65],
+      ['FASE 03','INVENTORY & REPORT','Rekap laba rugi & pemotongan bahan baku',100]
+    ],
+    img:'assets/images/project-posymart.png',
+    imgCap:'TERMINAL KASIR POS & PEMESANAN QR TABLE ORDERING',
+    repoUrl:'https://github.com/mirwan10522114-jpg/POSYMART_APLIKASI_POS',
+    liveUrl:null
+  },
+  {
+    id:'gis', num:'05', name:'WEBGIS KEDAI KOPI', titleTag:'ANALISIS SPASIAL SDSS', tag:'Spatial Analysis · Leaflet.js · Overpass API', code:'PRJ-05 / GIS & SDSS',
+    meta:'UNIKOM GIS Project · Juni 2026 – Juli 2026',
+    desc:'Sistem Pendukung Keputusan Spasial (SDSS) untuk penentuan lokasi cabang kedai kopi potensial di Kota Bandung menggunakan data OpenStreetMap, buffer kompetitor, dan multi-criteria evaluation.',
+    problem:'Menentukan titik ekspansi cabang kedai kopi baru di Kota Bandung sering kali mengandalkan intuisi tanpa pemetaan radius kepadatan pesaing, akses jalan, dan generator keramaian di sekitarnya.',
+    solution:'Membangun WebGIS interaktif yang menarik data spasial live dari OpenStreetMap via Overpass API dan mengalkulasi kelayakan lokasi kandidat menggunakan 3 kriteria berbobot terukur.',
+    features:[
+      'Peta interaktif Leaflet menampilkan lokasi kandidat, kompetitor kafe, dan pusat aktivitas.',
+      'Kalkulasi jarak Haversine ke generator keramaian terdekat dan hitung kepadatan pesaing radius 1 km.',
+      'Scoring aksesibilitas jalan otomatis berdasarkan klasifikasi jalan OpenStreetMap.',
+      'Peringkat lokasi terbaik dengan rincian skor dan rekomendasi bisnis strategis.'
+    ],
+    tech:['Next.js','TypeScript','React','Leaflet.js','OpenStreetMap','Overpass API','Tailwind CSS'],
+    specs:[
+      ['FRONTEND','Next.js, TypeScript, Leaflet.js, OpenStreetMap'],
+      ['GEO DATA','Overpass API (Live POI Retrieval)'],
+      ['ANALISIS','Algoritma skor 3 kriteria (Pusat Keramaian, Akses Jalan, Jarak Pesaing)'],
+      ['VISUAL','Layer interaktif GeoJSON, polygon buffer, heatmap']
+    ],
+    phases:[
+      ['FASE 01','SPATIAL INGESTION','Penarikan POI kafe & universitas via Overpass',30],
+      ['FASE 02','SCORING BUFFER','Kalkulasi radius 500m & eliminasi zona saturasi',70],
+      ['FASE 03','RANKING REPORT','Ranking lokasi terbaik & visualisasi peta interaktif',100]
+    ],
+    img:'assets/images/project-gis.png',
+    imgCap:'PETA INTERAKTIF ANALISIS ZONA BUFFER & KEPADATAN',
+    repoUrl:'https://github.com/mirwan10522114-jpg/WebGIS_Analisis-Lokasi-Strategis-Cabang-Kedai-Kopi',
+    liveUrl:null
+  },
+  {
+    id:'sipus', num:'06', name:'SIPUS PERPUSTAKAAN', titleTag:'MANAJEMEN PERPUS SEKOLAH', tag:'React · Vite · Node.js · Express · MySQL', code:'PRJ-06 / ACADEMIC ERP',
+    meta:'Academic & School System · Agustus 2026 – September 2026',
+    desc:'Platform manajemen perpustakaan sekolah digital dengan fitur peminjaman/pengembalian berbasis scan QR, katalog buku interaktif, manajemen anggota, dan kalkulasi denda otomatis.',
+    problem:'Pencatatan manual sirkulasi buku sekolah menyulitkan pencarian judul koleksi, pelacakan peminjam yang terlambat, serta sering menimbulkan kesalahan rekap denda buku.',
+    solution:'Membangun SIPUS, sistem perpustakaan web lengkap dengan katalog publik, akun anggota, modul sirkulasi peminjaman cepat berbasis QR, dan penghitungan denda otomatis.',
+    features:[
+      'Pencarian katalog buku cerdas berdasarkan judul, penulis, ISBN, atau kategori.',
+      'Pelacakan status eksemplar buku, tanggal pinjam, batas kembali, dan pengembalian instan.',
+      'Kalkulasi denda otomatis berdasarkan hari keterlambatan dan status pembayaran.',
+      'Dashboard anggota untuk memantau riwayat pinjaman aktif dan notifikasi.',
+      'Laporan sirkulasi buku dan log aktivitas staf perpustakaan.'
+    ],
+    tech:['React 18','TypeScript','Vite','Tailwind CSS','Node.js','Express','MySQL','JWT'],
+    specs:[
+      ['TECH STACK','React 18, Vite, TypeScript, Tailwind CSS'],
+      ['BACKEND','Node.js, Express RESTful API'],
+      ['DATABASE','MySQL Database Server'],
+      ['FITUR','QR Code Scanner sirkulasi buku, riwayat pinjam, denda otomatis']
+    ],
+    phases:[
+      ['FASE 01','CATALOG & MEMBERS','Manajemen master data buku & nomor anggota',30],
+      ['FASE 02','QR CIRCULATION','Transaksi peminjaman instan via pembaca QR',70],
+      ['FASE 03','FINE & AUDIT','Perhitungan keterlambatan & laporan sirkulasi buku',100]
+    ],
+    img:'assets/images/project-library.png',
+    imgCap:'PORTAL SIRKULASI PEMINJAMAN & KATALOG BUKU DIGITAL',
+    repoUrl:'https://github.com/mirwan10522114-jpg/SIPUS_WEB_PERPUSTAKAAN',
+    liveUrl:null
+  },
+  {
+    id:'absensi', num:'07', name:'PRESENSI GEOFENCE GPS', titleTag:'GEOFENCE & FOTO KAMERA', tag:'React 19 · Node/Express · MySQL · Leaflet', code:'PRJ-07 / ENTERPRISE HR',
+    meta:'Full-Stack Web Application · Agustus 2026 – September 2026',
+    desc:'Sistem absensi kehadiran karyawan berbasis web dengan validasi radius geofence GPS kantor dan verifikasi selfie kamera secara real-time, dilengkapi manajemen cuti dan lembur.',
+    problem:'Pencatatan presensi manual maupun fingerprint fisik sering menimbulkan antrean panjang dan risiko kecurangan (titip absen), serta memperlambat rekapitulasi cuti dan lembur bulanan.',
+    solution:'Membangun sistem presensi web dengan dua portal terpisah (karyawan & admin HR). Aplikasi mencatat kehadiran dengan foto selfie langsung dan koordinat GPS geofence kantor dalam radius 50 meter.',
+    features:[
+      'Clock-in & clock-out terverifikasi dengan foto kamera, lokasi GPS, dan validasi radius geofence.',
+      'Riwayat presensi harian, jam masuk/pulang, dan akumulasi jam kerja karyawan.',
+      'Pengajuan izin, sakit, cuti, dan lembur online dengan alur persetujuan admin.',
+      'Dashboard admin HR untuk memantau kehadiran real-time dan kelola master data pegawai.',
+      'Pengaturan radius geofence koordinat kantor, jam kerja shift, dan pengumuman instansi.',
+      'Ekspor rekapitulasi kehadiran ke format Excel siap payroll.'
+    ],
+    tech:['React 19','TypeScript','Vite','Tailwind CSS','Node.js','Express','MySQL','Leaflet.js'],
+    specs:[
+      ['TECH STACK','React 19, TypeScript, Vite, Tailwind CSS, Leaflet.js'],
+      ['BACKEND','Node.js, Express.js REST API'],
+      ['SECURITY','Geolocation API (Radius Geofence 50m) + Snapshot Kamera'],
+      ['DATABASE','MySQL (Presensi, Cuti, Izin, Overtime)'],
+      ['PORTAL','Dual portal: Employee Self-Service & Admin Dashboard']
+    ],
+    phases:[
+      ['FASE 01','GEOFENCE & CAPTURE','Validasi koordinat GPS kantor & foto selfie',35],
+      ['FASE 02','LEAVE & OVERTIME','Pengajuan izin, sakit, cuti, lembur berjenjang',70],
+      ['FASE 03','HR DASHBOARD','Rekap jam kerja, ekspor payroll, audit presensi',100]
+    ],
+    img:'assets/images/project-absensi.png',
+    imgCap:'PORTAL PRESENSI GEOFENCE GPS & VERIFIKASI FOTO REAL-TIME',
+    repoUrl:'https://github.com/mirwan10522114-jpg/SIS-TEM_ABSENSI_KARYAWAN',
+    liveUrl:null
+  },
+  {
+    id:'rental', num:'08', name:'RENTAL MOBIL CLOUD', titleTag:'GOOGLE APPS SCRIPT & DB', tag:'Apps Script · Google Sheets DB · Web App', code:'PRJ-08 / CLOUD SYSTEM',
+    meta:'Google Apps Script & Google Sheets Web App · 2026',
+    desc:'Web aplikasi reservasi dan manajemen armada rental mobil dengan database Google Sheets cloud, katalog interaktif, kalkulator tarif durasi otomatis, dan tiket sewa digital.',
+    problem:'Layanan rental mobil konvensional sering menghadapi jadwal yang tumpang tindih karena pemesanan via telepon tanpa visibilitas ketersediaan unit armada secara instan.',
+    solution:'Mengembangkan web aplikasi pemesanan rental mobil mobile-first yang di-deploy via Google Apps Script dengan basis data cloud Google Sheets, tanpa biaya hosting server tambahan.',
+    features:[
+      'Antarmuka booking responsif mobile-optimized untuk kemudahan akses dari smartphone.',
+      'Katalog armada lengkap dengan foto unit, transmisi, kapasitas kursi, dan tarif harian.',
+      'Kalkulator durasi dan harga sewa otomatis dengan update tarif dinamis.',
+      'Formulir reservasi digital menangkap tanggal sewa, pengembalian, dan data penyewa.',
+      'Sinkronisasi database cloud real-time terhubung langsung ke spreadsheet Google Sheets.',
+      'Pengiriman konfirmasi pemesanan otomatis dan pelacakan status jadwal unit armada.'
+    ],
+    tech:['Google Apps Script','Google Sheets (Database)','JavaScript (ES6+)','HTML5','CSS3','Mobile Web App','Cloud Deployment'],
+    specs:[
+      ['RUNTIME','Google Apps Script Engine (Cloud Hosting Tanpa Biaya Server)'],
+      ['DATABASE','Google Sheets sebagai Relational Cloud Database'],
+      ['FRONTEND','HTML5, CSS3, Vanilla JavaScript (Mobile-Optimized)'],
+      ['FITUR','Filter jenis transmisi, kalkulasi sewa otomatis, konfirmasi form'],
+      ['STATUS','Live Cloud Deployment']
+    ],
+    phases:[
+      ['FASE 01','CATALOG & PRICING','Penarikan data armada & kalkulator durasi sewa',30],
+      ['FASE 02','BOOKING DISPATCH','Pengiriman data reservasi ke backend spreadsheet',65],
+      ['FASE 03','ORDER TRACKING','Sinkronisasi status jadwal armada real-time',100]
+    ],
+    img:'assets/images/project-rental.png',
+    imgCap:'APLIKASI BOOKING ARMADA RENTAL MOBIL BERBASIS CLOUD',
+    repoUrl:null,
+    liveUrl:'https://script.google.com/macros/s/AKfycbyIvFluy0DLAlZeAJa4AOdrDlnrknuQOV8maKFKhzE4z8ijkVWBNMqs63_3c1DL7oEh_A/exec'
+  }
+];
+
+/* ================= DATA KREDENSIAL SERTIFIKASI (V1 VERBATIM) ================= */
+const CERTS_DATA = {
+  bnsp: {
+    title: "Analis Data Madya (Associate Data Analyst)",
+    tag: "BNSP · LSP Informatika",
+    status: "Kompeten (Competent)",
+    meta: "Badan Nasional Sertifikasi Profesi (BNSP) · Jakarta, 9 Februari 2026",
+    image: "assets/images/cert-bnsp.png",
+    overview: "Sertifikat Kompetensi resmi dari Badan Nasional Sertifikasi Profesi (BNSP) melalui Lembaga Sertifikasi Profesi Informatika (LSP Informatika). Menyatakan bahwa Mirwan Kholid telah dinilai dan dinyatakan KOMPETEN pada bidang Data Analitik (Data Analytics) dengan kualifikasi Analis Data Madya (Associate Data Analyst).",
+    competencies: [
+      "No. Sertifikat: 63111 2521 5 0037867 2026",
+      "No. Registrasi: TIK.317.00159 2026",
+      "Masa Berlaku: 3 (tiga) Tahun — Aktif hingga 9 Februari 2029",
+      "Ketua LSP Informatika: Dr. Muhaemin, S.Kom, SH, M.Kom.",
+      "Unit Kompetensi: Menelaah Kebutuhan Data Bisnis, Pembersihan & Validasi Data (Data Cleaning), Pemodelan Statistik & EDA, dan Penyusunan Laporan Analitik."
+    ],
+    skills: ["Data Analytics", "Associate Data Analyst", "Data Cleaning", "Statistical Modeling", "SKKNI", "BNSP RI"],
+    credId: "No. Reg: TIK.317.00159 2026 · Valid until 2029"
+  },
+  ibm: {
+    title: "Data Classification and Summarization",
+    tag: "IBM SkillsBuild · Student Developer Initiative",
+    status: "Certificate of Participation",
+    meta: "Hacktiv8 Indonesia in collaboration with IBM SkillsBuild · July 2025",
+    image: "assets/images/cert-ibm.png",
+    overview: "Certificate of Participation awarded to Mirwan Kholid for outstanding performance in completing exploratory practical sessions for the 'Data Classification and Summarization' class in the Student Developer Initiative, hosted by Hacktiv8 Indonesia in strategic collaboration with IBM SkillsBuild.",
+    competencies: [
+      "Exploratory Sessions Period: 10 & 12 June 2025",
+      "Issued Date: July 2025",
+      "Signatory: Riza Fahmi (Co-Founder & Chief Evangelist of Hacktiv8)",
+      "Technical Curriculum: Statistical Data Summarization, Feature Engineering, Classification Models (Decision Trees, Logistic, KNN), and Python for Data Exploration."
+    ],
+    skills: ["Machine Learning", "Data Classification", "Statistical Summarization", "Python", "Scikit-Learn", "IBM SkillsBuild", "Hacktiv8"],
+    credId: "Hacktiv8 × IBM SkillsBuild Verified Credential"
+  },
+  cisco_srwe: {
+    title: "CCNAv7: Switching, Routing, and Wireless Essentials",
+    tag: "Cisco Networking Academy",
+    status: "Successfully Completed",
+    meta: "Cisco Networking Academy · Completion Date: 03 August 2024",
+    image: "assets/images/cert-cisco-srwe.png",
+    overview: "Official Certificate of Completion awarded to MIRWAN KHOLID for successfully completing the CCNAv7: Switching, Routing, and Wireless Essentials curriculum through the Cisco Networking Academy program.",
+    competencies: [
+      "Completion Date: 03 August 2024",
+      "Director Cisco Networking Academy: Lynn Bloomer",
+      "Switching Technologies: VLANs, 802.1Q Trunking, Inter-VLAN Routing, Spanning Tree Protocol (STP & RSTP)",
+      "Network Infrastructure: EtherChannel Link Aggregation (LACP/PAgP), DHCPv4 & DHCPv6 multi-router deployment",
+      "Wireless & Security: Wireless LAN Controllers (WLCs), WPA2/WPA3 Enterprise authentication, and First Hop Redundancy (HSRP)"
+    ],
+    skills: ["Routing & Switching", "VLANs & STP", "EtherChannel", "Wireless LAN (WLC)", "DHCPv4 / DHCPv6", "Cisco Packet Tracer"],
+    credId: "Cisco NetAcad Verified Credential · Lynn Bloomer, Director"
+  },
+  cisco_itn: {
+    title: "CCNAv7: Introduction to Networks",
+    tag: "Cisco Networking Academy",
+    status: "Successfully Completed",
+    meta: "Cisco Networking Academy · Completion Date: 27 February 2024",
+    image: "assets/images/cert-cisco-itn.png",
+    overview: "Official Certificate of Completion awarded to MIRWAN KHOLID for successfully completing the CCNAv7: Introduction to Networks curriculum through the Cisco Networking Academy program.",
+    competencies: [
+      "Completion Date: 27 February 2024",
+      "Director Cisco Networking Academy: Lynn Bloomer",
+      "Layer Architectures: Comprehensive OSI Model & TCP/IP suite dynamics, Ethernet frame processing, MAC & IP mapping",
+      "IP Addressing & Subnetting: IPv4 Subnetting (FLSM / VLSM), IPv6 Global Unicast & Link-Local routing schemes",
+      "Network Device Management: Cisco IOS CLI configuration, device hardening, SSH, banner, and ICMP connectivity diagnostics"
+    ],
+    skills: ["IPv4 & IPv6 Subnetting", "OSI & TCP/IP", "Ethernet Protocols", "Cisco IOS CLI", "Network Troubleshooting", "Security Basics"],
+    credId: "Cisco NetAcad Verified Credential · Lynn Bloomer, Director"
+  }
+};
+
+/* ================= INISIALISASI MARQUEE ================= */
+(function(){
+  const group = MQ.map((t,i)=>`<span class="mq-item ${i%3===1?'o':(i%3===2?'c':'')}">${t}</span><span class="mq-sep">///</span>`).join('');
+  $('#mqTrack').innerHTML = group + group + group;
+})();
+
+/* ================= PROYEK: TABS & RENDER ================= */
+const tabsEl = $('#progTabs'), panelEl = $('#progPanel');
+
+const projectTemplate = p => `
+  <div class="prog-body">
+    <div class="prog-info">
+      <div class="prog-head">
+        <h3>${p.name}<em> — ${p.titleTag}</em></h3>
+        <span class="prog-code">${p.code}</span>
+      </div>
+      <p class="prog-desc">${p.desc}</p>
+      <div class="specs">
+        ${p.specs.map(s=>`<div class="spec"><span class="s-key">${s[0]}</span><span class="s-val">${s[1]}</span></div>`).join('')}
+      </div>
+      <div class="prog-actions">
+        <button type="button" class="btn btn-solid btn-sm magnetic" onclick="openProjectModal('${p.id}')">Detail Arsitektur <i data-lucide="layers"></i></button>
+        ${p.repoUrl ? `<a href="${p.repoUrl}" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">GitHub Repo <i data-lucide="github"></i></a>` : ''}
+        ${p.liveUrl ? `<a href="${p.liveUrl}" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">Live Web <i data-lucide="external-link"></i></a>` : ''}
+      </div>
+    </div>
+    <aside class="prog-side">
+      <figure class="fig">
+        <figcaption class="fig-cap"><span>PROYEK ${p.num}</span><b>${p.id.toUpperCase()}</b></figcaption>
+        <div class="fig-img" style="cursor:pointer" onclick="openProjectModal('${p.id}')" title="Klik untuk pratinjau penuh"><img src="${p.img}" alt="Tangkapan layar sistem ${p.name}" loading="lazy"></div>
+        <figcaption class="fig-sub">${p.imgCap}</figcaption>
+      </figure>
+      <div class="phases">
+        <div class="ph-title">ARSITEKTUR &amp; MILESTONE FITUR</div>
+        ${p.phases.map(ph=>`
+          <div class="phase">
+            <div class="p-head"><b>${ph[1]}</b><span>${ph[0]}</span></div>
+            <p>${ph[2]}</p>
+            <div class="p-bar"><i style="--w:${ph[3]}%"></i></div>
+          </div>`).join('')}
+      </div>
+    </aside>
+  </div>`;
+
+function renderProject(id, animate=true){
+  const p = PROJECTS.find(x=>x.id===id);
+  const apply = ()=>{
+    panelEl.innerHTML = projectTemplate(p);
+    refreshIcons();
+    requestAnimationFrame(()=>requestAnimationFrame(()=>panelEl.classList.add('live')));
+  };
+  if(animate){
+    panelEl.classList.remove('live');
+    panelEl.classList.add('out');
+    setTimeout(()=>{ apply(); panelEl.classList.remove('out'); }, 200);
+  } else apply();
+}
+
+tabsEl.innerHTML = PROJECTS.map((p,i)=>`
+  <button class="tab" role="tab" aria-selected="${i===0}" data-id="${p.id}">
+    <span class="t-num">${p.num}</span>
+    <span class="t-body"><span class="t-name">${p.name}</span><span class="t-tag">${p.tag}</span></span>
+    <i data-lucide="arrow-right" class="t-arrow"></i>
+  </button>`).join('');
+
+tabsEl.addEventListener('click', e=>{
+  const b = e.target.closest('.tab');
+  if(!b || b.getAttribute('aria-selected')==='true') return;
+  $$('.tab', tabsEl).forEach(t=>t.setAttribute('aria-selected', t===b));
+  renderProject(b.dataset.id);
+});
+renderProject('wastebank', false);
+
+/* ================= MODAL PROYEK (DETAIL ARSITEKTUR) ================= */
+function openProjectModal(id){
+  const p = PROJECTS.find(x=>x.id===id);
+  if(!p) return;
+  $('#pModalTitle').textContent = p.name + ' — ' + p.titleTag;
+  $('#pModalTag').textContent = '// ' + p.code;
+  $('#pModalMeta').textContent = p.meta;
+  $('#pModalImg').src = p.img;
+  $('#pModalImg').alt = p.name;
+  $('#pModalProblem').textContent = p.problem;
+  $('#pModalSolution').textContent = p.solution;
+
+  const fList = $('#pModalFeatures');
+  fList.innerHTML = p.features.map(f=>`<li>${f}</li>`).join('');
+
+  const tList = $('#pModalTech');
+  tList.innerHTML = p.tech.map(t=>`<span>${t}</span>`).join('');
+
+  const aBox = $('#pModalActions');
+  aBox.innerHTML = `
+    ${p.repoUrl ? `<a href="${p.repoUrl}" target="_blank" rel="noopener" class="btn btn-solid btn-sm">Buka GitHub Repository <i data-lucide="github"></i></a>` : ''}
+    ${p.liveUrl ? `<a href="${p.liveUrl}" target="_blank" rel="noopener" class="btn btn-solid btn-sm">Akses Live Website <i data-lucide="external-link"></i></a>` : ''}
+    <button type="button" class="btn btn-ghost btn-sm" onclick="closeProjectModal()">Tutup Modal</button>
+  `;
+  refreshIcons();
+  $('#modalProject').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeProjectModal(){
+  $('#modalProject').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+/* ================= MODAL KREDENSIAL SERTIFIKASI ================= */
+function openCertModal(key){
+  const c = CERTS_DATA[key];
+  if(!c) return;
+  $('#cModalTitle').textContent = c.title;
+  $('#cModalTag').textContent = '// ' + c.tag;
+  $('#cModalMeta').textContent = c.meta + ' · ' + c.status;
+  $('#cModalImg').src = c.image;
+  $('#cModalImg').alt = c.title;
+  $('#cModalImgLink').href = c.image;
+  $('#cModalOverview').textContent = c.overview;
+  $('#cModalCredId').textContent = c.credId;
+
+  const compList = $('#cModalCompetencies');
+  compList.innerHTML = c.competencies.map(x=>`<li>${x}</li>`).join('');
+
+  const sList = $('#cModalSkills');
+  sList.innerHTML = c.skills.map(s=>`<span>${s}</span>`).join('');
+
+  refreshIcons();
+  $('#modalCert').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCertModal(){
+  $('#modalCert').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function closeModalOnOutside(e, modalId){
+  if(e.target.id === modalId){
+    if(modalId==='modalProject') closeProjectModal();
+    if(modalId==='modalCert') closeCertModal();
+  }
+}
+
+addEventListener('keydown', e=>{
+  if(e.key==='Escape'){
+    closeProjectModal();
+    closeCertModal();
+  }
+});
+
+/* ================= TOAST ================= */
+function showToast(title, msg){
+  const box = $('#toasts');
+  const t = document.createElement('div');
+  t.className = 'toast';
+  t.innerHTML = `<h5>${title}</h5><p>${msg}</p><button class="t-close" aria-label="Tutup notifikasi"><i data-lucide="x"></i></button>`;
+  box.appendChild(t);
+  refreshIcons();
+  const kill = ()=>{ t.classList.add('hide'); setTimeout(()=>t.remove(), 320); };
+  t.querySelector('.t-close').addEventListener('click', kill);
+  setTimeout(kill, 4800);
+}
+
+/* ================= FORM DISKUSI & KIRIM PESAN ================= */
+const form = $('#trialForm');
+
+function validateForm() {
+  let ok = true;
+  const check = (el, valid)=>{
+    el.closest('.field').classList.toggle('invalid', !valid);
+    if(!valid) ok = false;
+  };
+  const name=$('#fName'), wa=$('#fWa'), goal=$('#fGoal'), time=$('#fTime');
+  check(name, name.value.trim().length >= 2);
+  check(wa, wa.value.trim().length >= 5);
+  check(goal, goal.value !== '');
+  check(time, time.value !== '');
+  return ok;
+}
+
+form.addEventListener('submit', e=>{
+  e.preventDefault();
+  if(!validateForm()){
+    showToast('PERIKSA FORMULIR','Beberapa kolom belum terisi dengan benar — lihat penanda oranye.');
+    return;
+  }
+
+  const name=$('#fName'), goal=$('#fGoal'), time=$('#fTime'), msg=$('#fMsg');
+  const sName = name.value.trim().toUpperCase();
+  const sGoal = goal.options[goal.selectedIndex].text.toUpperCase();
+  const sTime = time.options[time.selectedIndex].text.toUpperCase();
+
+  $('#sumName').textContent = sName;
+  $('#sumGoal').textContent = sGoal;
+  $('#sumTime').textContent = sTime;
+
+  const textMsg = encodeURIComponent(`Halo Mirwan Kholid,\n\nSaya ${name.value.trim()} ingin berdiskusi:\n- Kebutuhan: ${goal.options[goal.selectedIndex].text}\n- Skema: ${time.options[time.selectedIndex].text}\n- Catatan: ${msg.value.trim() || 'Ingin mendiskusikan peluang kerja sama / rekrutmen.'}\n\nTerima kasih.`);
+  $('#waDirectBtn').href = `https://wa.me/6281211547844?text=${textMsg}`;
+
+  $('#formCard').classList.add('done');
+  showToast('PESAN TERCATAT','Pesan Anda berhasil tercatat. Silakan lanjut ke WhatsApp untuk diskusi langsung.');
+});
+
+function sendViaMailto() {
+  if(!validateForm()){
+    showToast('PERIKSA FORMULIR','Lengkapi formulir terlebih dahulu untuk mengirimkan email.');
+    return;
+  }
+  const name=$('#fName').value.trim();
+  const goal=$('#fGoal').options[$('#fGoal').selectedIndex].text;
+  const time=$('#fTime').options[$('#fTime').selectedIndex].text;
+  const msg=$('#fMsg').value.trim();
+
+  const subject = encodeURIComponent(`Inquiry: ${goal} - ${name}`);
+  const body = encodeURIComponent(`Halo Mirwan Kholid,\n\nNama: ${name}\nKebutuhan: ${goal}\nSkema: ${time}\n\nPesan:\n${msg || 'Saya tertarik dengan profil portofolio Anda.'}\n\nSalam,\n${name}`);
+  window.location.href = `mailto:mirwankholid06@gmail.com?subject=${subject}&body=${body}`;
+}
+
+$$('input,select,textarea', form).forEach(el=>
+  el.addEventListener('input', ()=>el.closest('.field').classList.remove('invalid')));
+
+$('#resetForm').addEventListener('click', ()=>{
+  $('#formCard').classList.remove('done');
+  form.reset();
+});
+
+/* ================= NAV: SCROLL, PROGRESS, MENU MOBILE ================= */
+const nav = $('#nav'), progBar = $('#progress');
+addEventListener('scroll', ()=>{
+  nav.classList.toggle('scrolled', scrollY > 10);
+  const h = document.documentElement;
+  progBar.style.width = (h.scrollTop / (h.scrollHeight - innerHeight) * 100) + '%';
+}, {passive:true});
+
+const burger = $('#burger'), menu = $('#menu');
+const closeMenu = ()=>{ menu.classList.remove('open'); burger.classList.remove('active'); document.body.style.overflow=''; };
+burger.addEventListener('click', ()=>{
+  const open = menu.classList.toggle('open');
+  burger.classList.toggle('active', open);
+  document.body.style.overflow = open ? 'hidden' : '';
+});
+$$('#menu a').forEach(a=>a.addEventListener('click', closeMenu));
+
+const navIO = new IntersectionObserver(es=>{
+  es.forEach(en=>{
+    if(en.isIntersecting){
+      $$('.nav-links a').forEach(a=>a.classList.remove('active'));
+      const l = $(`.nav-links a[href="#${en.target.id}"]`);
+      if(l) l.classList.add('active');
+    }
+  });
+},{rootMargin:'-35% 0px -55% 0px'});
+$$('main section').forEach(s=>navIO.observe(s));
+
+/* ================= REVEAL & COUNTER ================= */
+const revIO = new IntersectionObserver(es=>{
+  es.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add('in'); revIO.unobserve(en.target); } });
+},{threshold:.12});
+$$('.reveal').forEach(el=>revIO.observe(el));
+
+function animateCount(el){
+  const target = +el.dataset.count, pad = +(el.dataset.pad || 0), dur = 1600, t0 = performance.now();
+  const fmt = v => pad ? String(v).padStart(pad,'0') : String(v);
+  (function tick(now){
+    const p = Math.min((now - t0)/dur, 1), e = 1 - Math.pow(1-p, 3);
+    el.textContent = fmt(Math.round(target * e));
+    if(p < 1) requestAnimationFrame(tick);
+  })(t0);
+}
+const cntIO = new IntersectionObserver(es=>{
+  es.forEach(en=>{ if(en.isIntersecting){ animateCount(en.target); cntIO.unobserve(en.target); } });
+},{threshold:.5});
+$$('.cnt').forEach(el=>cntIO.observe(el));
+
+/* ================= KURSOR KUSTOM & MAGNETIK ================= */
+if(matchMedia('(hover:hover) and (pointer:fine)').matches){
+  const dot = $('#cursor-dot'), ring = $('#cursor-ring');
+  if(dot && ring){
+    document.documentElement.classList.add('has-cursor');
+    let mx = innerWidth/2, my = innerHeight/2, rx = mx, ry = my;
+    addEventListener('mousemove', e=>{
+      mx = e.clientX; my = e.clientY;
+      dot.style.transform = `translate(${mx}px,${my}px)`;
+    });
+    (function loop(){
+      rx += (mx - rx) * .18; ry += (my - ry) * .18;
+      ring.style.transform = `translate(${rx}px,${ry}px)`;
+      requestAnimationFrame(loop);
+    })();
+    const HOT = 'a,button,input,select,textarea,.cert-card,.exp-card,.case-card,.tab,.c-card';
+    document.addEventListener('mouseover', e=>{ if(e.target.closest(HOT)) ring.classList.add('big'); });
+    document.addEventListener('mouseout',  e=>{ if(e.target.closest(HOT)) ring.classList.remove('big'); });
+
+    $$('.magnetic').forEach(b=>{
+      b.addEventListener('mousemove', e=>{
+        const r = b.getBoundingClientRect();
+        const x = (e.clientX - r.left - r.width/2) * .22;
+        const y = (e.clientY - r.top - r.height/2) * .3;
+        b.style.transform = `translate(${x}px,${y}px)`;
+      });
+      b.addEventListener('mouseleave', ()=>{ b.style.transform=''; });
+    });
+  }
+}
+
+/* ================= LAIN-LAIN ================= */
+$('#toTop').addEventListener('click', ()=>scrollTo({top:0, behavior:'smooth'}));
+
+refreshIcons();
+</script>
+</body>
+</html>
