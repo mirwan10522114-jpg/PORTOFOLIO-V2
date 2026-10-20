@@ -8,7 +8,7 @@
 [![UNIKOM Alumni](https://img.shields.io/badge/UNIKOM%20Alumni-IPK%203.68%20(High%20Distinction)-10b981?style=for-the-badge&logo=academia&logoColor=white)](https://unikom.ac.id)
 [![Cisco CCNA](https://img.shields.io/badge/Cisco-CCNA%20(2x%20Verified)-0088cc?style=for-the-badge&logo=cisco&logoColor=white)](https://netacad.com)
 [![GitHub](https://img.shields.io/badge/GitHub-mirwan10522114--jpg-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/mirwan10522114-jpg)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-mirwan--kholid-0a66c2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/mirwan-kholid-902038362/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-mirwan--kholid-0a66c2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/mirwan-kholid/)
 
 <p align="center">
   <strong>Rekayasa aplikasi web enterprise modern berkecepatan tinggi dipadukan dengan intelijen analitik data terakreditasi nasional (BNSP SKKNI).</strong>
@@ -158,7 +158,7 @@ Pastikan folder berada di direktori web root (contoh `C:\laragon\www\PORTOFOLIO 
 - 📍 **Domisili**: Kota Bandung & Kab. Bandung Barat, Jawa Barat, Indonesia
 - 📱 **WhatsApp**: [+62 812-1154-7844](https://wa.me/6281211547844)
 - 📧 **Email**: [mirwankholid06@gmail.com](mailto:mirwankholid06@gmail.com)
-- 💼 **LinkedIn**: [linkedin.com/in/mirwan-kholid-902038362/](https://linkedin.com/in/mirwan-kholid-902038362/)
+- 💼 **LinkedIn**: [linkedin.com/in/mirwan-kholid/](https://www.linkedin.com/in/mirwan-kholid/)
 - 🐙 **GitHub**: [github.com/mirwan10522114-jpg](https://github.com/mirwan10522114-jpg)
 
 ---
